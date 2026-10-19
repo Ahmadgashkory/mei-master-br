@@ -1,44 +1,24 @@
-===================================================================
-MEI MASTER BRASIL 2026 — PRODUCTION DEPLOYMENT PACKAGE (5.0 / 5)
-===================================================================
+=====================================================================
+MEI MASTER BRASIL 2026 (v3.0 SEO EXPANSION — 15 PAGES TOTAL)
+GITHUB UPLOAD & GOOGLE SEARCH CONSOLE GUIDE (ROMAN URDU)
+=====================================================================
 
-Is ZIP folder mein aapki mukammal Multi-Page Production Website mojood hai.
-Ismein se "Owner Roman Urdu Bar" aur "Yellow Demo AdSense Boxes" hata diye gaye hain
-taake Brazilian visitors aur Google AdSense reviewers ko 100% clean, official
-fintech portal nazar aaye.
+Mubarak ho! Is v3.0 package mein ab total 15 HTML Pages + Updated Sitemap hain:
+- 7 Interactive Financial Tools (har page ke andar ab real <a href> SEO links lagaye gaye hain taake Googlebot har page ko khud crawl aur index kare!)
+- 8 Naye Long-Form Portuguese SEO Articles (High-CPC, Low-Competition keywords ke saath)
+- Updated sitemap.xml (jismein ab 7 ke bajaye poore 15 URLs shamil hain)
 
--------------------------------------------------------------------
-IS FOLDER MEIN KONSI FILES HAIN? (10 FILES)
--------------------------------------------------------------------
-1. index.html                              -> Main Homepage + Simulador MEI & DAS 2026
-2. gerador-recibo-orcamento-mei.html       -> Standalone SEO Page: PDF Quote & Receipt Maker
-3. gerador-qrcode-pix-mei.html             -> Standalone SEO Page: Official PIX QR Generator
-4. tabela-cnae-mei-2026-nfse.html          -> Standalone SEO Page: CNAE 2026 & NFS-e Lookup
-5. gerador-contrato-servico-mei.html       -> Standalone SEO Page: Legal Contract Generator
-6. calculadora-preco-hora-freelancer.html  -> Standalone SEO Page: Freelance Hourly Calculator
-7. guias-enciclopedia-mei-2026.html        -> Standalone SEO Page: 6 Full Portuguese Guides
-8. sitemap.xml                             -> Google Search Console Sitemap (7 SEO URLs)
-9. robots.txt                              -> Search Engine Crawler Rules
-10. ads.txt                                -> Google AdSense Publisher Verification File
+---------------------------------------------------------------------
+STEP 1: GITHUB MEIN FILES KAISE UPLOAD KAREIN (SIRF 1 MINUTE KA KAAM)
+---------------------------------------------------------------------
+1. Apni GitHub repository (Ahmadgashkory/mei-master-br) kholein.
+2. Upar "Add file" -> "Upload files" par click karein.
+3. Is ZIP folder ko extract kar ke iske andar maujood SAARI files ko drag-and-drop kar dein (purani files automatically update ho jayengi aur 8 nayi article files add ho jayengi).
+4. Neeche green button "Commit changes" par click kar dein.
+5. Cloudflare 30 seconds mein aapki live website (https://meimasterbr.online) ko update kar dega!
 
--------------------------------------------------------------------
-STEP-BY-STEP: GITHUB + CLOUDFLARE PAGES PAR FREE LIVE KAISE KAREIN?
--------------------------------------------------------------------
-STEP 1:
-Is ZIP file (mei_master_brasil_production.zip) ko apne computer par Extract (Unzip) karein.
-
-STEP 2:
-1. https://github.com par free account banayein aur '+' button se "New repository" banayein.
-2. Repository ka naam rakhein: mei-master-brasil
-3. "uploading an existing file" par click karein aur is folder ke andar wali saari 10 files
-   drag-and-drop kar ke "Commit changes" daba dein.
-
-STEP 3:
-1. https://dash.cloudflare.com par free account banayein.
-2. Left menu mein "Workers & Pages" -> "Create" -> "Pages" -> "Connect to Git" par click karein.
-3. Apni GitHub repository (mei-master-brasil) select karein aur "Save and Deploy" daba dein.
-4. 30 seconds mein aapki site free global CDN aur HTTPS ke saath live ho jayegi!
-
-STEP 4 (JAB DOMAIN LEIN):
-- `sitemap.xml` aur `robots.txt` ko Notepad mein khol kar `SEUDOMINIO.com.br` ki jagah apni
-  asli domain likh dein aur Google Search Console mein `sitemap.xml` submit kar dein.
+---------------------------------------------------------------------
+STEP 2: GOOGLE SEARCH CONSOLE MEIN KYA KARNA HAI?
+---------------------------------------------------------------------
+1. Link #2, #4, aur #7 par jahan "Page is not indexed" likha aaya tha, wahan bilkul ghabrane ki zaroorat nahi! Iska matlab sirf yeh hai ke Google ne abhi un 3 pages ko list mein rakha hai. Aap bas unke samne "REQUEST INDEXING" button daba dein.
+2. Naye 8 articles ke links bhi aap ek-ek kar ke upar Inspect bar mein daal kar "Request Indexing" kar sakte hain.
