@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Orçamento e Recibo em PDF com Logo para MEI e Autônomos — Grátis</title>
+  <meta name="description" content="Crie orçamentos comerciais, recibos de pagamento e ordens de serviço em PDF com a logomarca da sua empresa MEI e envie direto no WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Google Rich Snippet Schema (SoftwareApplication + FAQPage) for Google.com.br Ranking -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "MEI Master Brasil 2026",
+        "operatingSystem": "Web Browser",
+        "applicationCategory": "BusinessApplication",
+        "inLanguage": "pt-BR",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "BRL"
+        },
+        "description": "Suíte completa para MEI e Autônomos: Simulador de Limite Anual e DAS 2026, Gerador de Recibos e Orçamentos em PDF com Logo, QR Code PIX Oficial Banco Central, Consulta de CNAE Permitidos e Gerador de Contrato de Prestação de Serviços."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qual o valor do DAS MEI em 2026 com o salário mínimo de R$ 1.621,00?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Em 2026, com o salário mínimo de R$ 1.621,00, o INSS do MEI (5%) é de R$ 81,05. Assim, o DAS mensal custa R$ 82,05 para Comércio e Indústria (+R$ 1 ICMS), R$ 86,05 para Prestadores de Serviços (+R$ 5 ISS) e R$ 87,05 para Comércio e Serviços juntos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que acontece se o MEI ultrapassar o limite de R$ 81.000 no ano?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se ultrapassar em até 20% (até R$ 97.200,00), o MEI recolhe um DAS complementar em janeiro sobre o valor excedente e migra para Microempresa (ME) no ano seguinte. Se ultrapassar R$ 97.200,00, o desenquadramento é retroativo a janeiro do mesmo ano."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+    html.dark body {
+      background-color: #020617;
+      color: #f1f5f9;
+    }
+    html.dark .bg-white {
+      background-color: #0f172a !important;
+      color: #f1f5f9;
+    }
+    html.dark .bg-slate-50 {
+      background-color: #1e293b !important;
+    }
+    html.dark .border-slate-200,
+    html.dark .border-slate-100,
+    html.dark .border-slate-300 {
+      border-color: #334155 !important;
+    }
+    html.dark .text-slate-900,
+    html.dark .text-slate-800 {
+      color: #f8fafc !important;
+    }
+    html.dark .text-slate-600,
+    html.dark .text-slate-500 {
+      color: #94a3b8 !important;
+    }
+    html.dark input,
+    html.dark select,
+    html.dark textarea {
+      background-color: #1e293b !important;
+      color: #f8fafc !important;
+      border-color: #475569 !important;
+    }
+    .ad-slot-box {
+      transition: all 0.25s ease;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printableDocumentArea, #printableDocumentArea *,
+      #printableContractArea, #printableContractArea * {
+        visibility: visible;
+      }
+      #printableDocumentArea, #printableContractArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none !important;
+        border: none !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-20 lg:pb-0">
+
+  <!-- Top Utility Bar (Owner Controls, AdSense Preview, SEO Pack, Dark Mode & Trust Badges) -->
+  <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Receita Federal 2026 • Salário Mínimo R$ 1.621,00 (DAS R$ 81,05+)
+        </span>
+        <span class="hidden xl:inline text-slate-400">7 Ferramentas Integradas • Processamento Local LGPD</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="toggleDarkModeBtn" type="button" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition">
+          <span id="darkModeIcon">🌙</span>
+          <span id="darkModeLabel">Modo Escuro</span>
+        </button>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Main SaaS Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between py-3 gap-3">
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-600 via-emerald-500 to-teal-700 flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-emerald-600/20">
+            M$
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">MEI Master<span class="text-emerald-600">.br</span></span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Suíte 2026 v2.0</span>
+            </div>
+            <p class="text-xs text-slate-500">Imposto DAS, Recibos PDF com Logo, PIX Oficial, CNAE, Contratos e Guias</p>
+          </div>
+        </div>
+
+        <!-- Primary Navigation Tabs (7 Complete Modules) -->
+        <nav class="flex items-center gap-1 overflow-x-auto max-w-full pb-1 sm:pb-0" aria-label="Navegação Principal">
+          <button type="button" data-tab="simulador" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap bg-emerald-600 text-white shadow-sm">
+            📊 Simulador MEI & DAS
+          </button>
+          <button type="button" data-tab="recibos" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            📄 Orçamento & Recibo PDF
+          </button>
+          <button type="button" data-tab="pix" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            ⚡ Gerador PIX & QR Code
+          </button>
+          <button type="button" data-tab="cnae" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            🔍 Buscador CNAE & NFS-e
+          </button>
+          <button type="button" data-tab="contratos" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            ⚖️ Gerador de Contrato
+          </button>
+          <button type="button" data-tab="precificacao" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            🧮 Preço Hora & Lucro
+          </button>
+          <button type="button" data-tab="guias" class="nav-tab-btn px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">
+            📚 Guias MEI & Blog SEO
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- GOOGLE ADSENSE LEADERBOARD (728x90 / Auto) - Cole seu codigo <ins class="adsbygoogle"> abaixo quando aprovado -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 w-full"></div>
+
+  <!-- Main Workspace Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+    <!-- ==========================================
+         TAB 1: SIMULADOR MEI, LIMITE, MULTA DAS & EXPORTAÇÃO
+         ========================================== -->
+    <section id="tab-simulador" class="tab-panel space-y-6">
+      <!-- Hero Banner with Quick Stats -->
+      <div class="bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-900 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+          <div class="lg:col-span-2 space-y-2.5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-200 text-xs font-semibold">
+              <span>🇧🇷</span> Controle Anual de CNPJ MEI 2026 — Teto Oficial, Proporcional e Multa DAS
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              Simulador de Faturamento Anual, Guia DAS 2026 e Relatório Oficial de Receitas
+            </h1>
+            <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+              Acompanhe suas vendas mês a mês, calcule o imposto exato com base no salário mínimo de R$ 1.621,00, simule multa por atraso da guia DAS e exporte sua planilha para a Declaração Anual (DASN-SIMEI).
+            </p>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <button type="button" id="exportCsvBtn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-bold border border-white/20 transition">
+                📥 Baixar Planilha Excel (CSV)
+              </button>
+              <button type="button" id="openOfficialDasnModalBtn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-extrabold shadow-sm transition">
+                📄 Gerar Relatório Oficial Receita Federal
+              </button>
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4 space-y-3">
+            <div class="flex items-center justify-between text-xs text-emerald-200">
+              <span>Status Atual do Seu CNPJ</span>
+              <span id="heroStatusBadge" class="px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-200 font-bold">REGULAR</span>
+            </div>
+            <div>
+              <div class="text-xs text-emerald-200">Faturamento Acumulado no Ano</div>
+              <div id="heroTotalRevenue" class="text-2xl sm:text-3xl font-extrabold">R$ 54.800,00</div>
+            </div>
+            <div class="w-full bg-emerald-950/60 h-2.5 rounded-full overflow-hidden">
+              <div id="heroProgressBar" class="bg-emerald-400 h-full rounded-full transition-all duration-300" style="width: 67.6%"></div>
+            </div>
+            <div class="flex items-center justify-between text-xs text-emerald-100">
+              <span id="heroLimitUsedText">67,7% do limite utilizado</span>
+              <span id="heroRemainingText">Restam R$ 26.200,00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Simulator Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left Column: Inputs & Configuration (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="font-bold text-base sm:text-lg text-slate-900">1. Configuração da Atividade MEI</h2>
+              <button type="button" id="resetSimulatorBtn" class="text-xs text-emerald-700 hover:text-emerald-800 font-semibold">
+                Restaurar Exemplo
+              </button>
+            </div>
+
+            <!-- Activity Category -->
+            <div class="space-y-2">
+              <label for="meiActivitySelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                Categoria de Atividade (CNAE Principal)
+              </label>
+              <select id="meiActivitySelect" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-slate-900 focus:border-emerald-600 focus:bg-white focus:outline-none">
+                <option value="servicos">Prestação de Serviços (ISS R$ 5 + INSS R$ 81,05 = R$ 86,05)</option>
+                <option value="comercio">Comércio ou Indústria (ICMS R$ 1 + INSS R$ 81,05 = R$ 82,05)</option>
+                <option value="ambos" selected>Comércio e Serviços Juntos (ICMS + ISS + INSS = R$ 87,05)</option>
+                <option value="caminhoneiro">MEI Caminhoneiro (Teto R$ 251.600 / INSS 12% = R$ 194,52+)</option>
+              </select>
+            </div>
+
+            <!-- Base Minimum Wage & Active Months -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label for="minimumWageInput" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Salário Mínimo 2026 (R$)
+                </label>
+                <input id="minimumWageInput" type="number" step="1" min="1000" value="1621" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-semibold text-slate-900 focus:border-emerald-600 focus:outline-none" />
+                <p class="text-[11px] text-slate-500">Oficial 2026: R$ 1.621 (INSS 5% = R$ 81,05)</p>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="activeMonthsSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600">
+                  Meses Ativos no Ano
+                </label>
+                <select id="activeMonthsSelect" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-semibold text-slate-900 focus:border-emerald-600 focus:outline-none">
+                  <option value="12" selected>12 meses (Ano Completo)</option>
+                  <option value="11">11 meses (Aberto em Fevereiro)</option>
+                  <option value="10">10 meses (Aberto em Março)</option>
+                  <option value="9">9 meses (Aberto em Abril)</option>
+                  <option value="8">8 meses (Aberto em Maio)</option>
+                  <option value="7">7 meses (Aberto em Junho)</option>
+                  <option value="6">6 meses (Aberto em Julho)</option>
+                  <option value="5">5 meses (Aberto em Agosto)</option>
+                  <option value="4">4 meses (Aberto em Setembro)</option>
+                  <option value="3">3 meses (Aberto em Outubro)</option>
+                  <option value="2">2 meses (Aberto em Novembro)</option>
+                  <option value="1">1 mês (Aberto em Dezembro)</option>
+                </select>
+                <p class="text-[11px] text-slate-500">Calcula o limite proporcional no 1º ano</p>
+              </div>
+            </div>
+
+            <!-- Quick Monthly Fill -->
+            <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="quickMonthlyAvgInput" class="text-xs font-bold text-emerald-950">
+                  Preenchimento Rápido (Média Mensal R$)
+                </label>
+                <button type="button" id="applyQuickAverageBtn" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold transition">
+                  Aplicar nos 12 Meses
+                </button>
+              </div>
+              <input id="quickMonthlyAvgInput" type="number" step="100" min="0" value="4500" class="w-full rounded-lg border border-emerald-300 bg-white px-3 py-2 text-sm font-semibold text-slate-900 focus:border-emerald-600 focus:outline-none" placeholder="Ex: 5500" />
+            </div>
+
+            <!-- 12-Month Detailed Revenue Grid -->
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Faturamento Bruto Mês a Mês (R$)</span>
+                <span class="text-xs text-slate-500">Salvo automaticamente</span>
+              </div>
+              <div id="monthlyInputsContainer" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Results, DAS Breakdown, Late Fine Calculator & Chart (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+          <!-- KPI Cards Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-slate-500">Guia DAS Mensal 2026</div>
+              <div id="cardDasValue" class="text-2xl font-extrabold text-slate-900 mt-1">R$ 87,05</div>
+              <div id="cardDasBreakdown" class="text-[11px] text-emerald-700 font-medium mt-1">INSS R$ 81,05 + ICMS R$ 1 + ISS R$ 5</div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-slate-500">Teto Máximo Permitido</div>
+              <div id="cardMaxLimit" class="text-2xl font-extrabold text-slate-900 mt-1">R$ 81.000,00</div>
+              <div id="cardMonthlySafeAvg" class="text-[11px] text-slate-500 mt-1">Média segura: R$ 6.750,00/mês</div>
+            </div>
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+              <div class="text-xs font-semibold text-slate-500">Imposto Anual Total (12x DAS)</div>
+              <div id="cardAnnualTax" class="text-2xl font-extrabold text-emerald-600 mt-1">R$ 1.044,60</div>
+              <div id="cardEffectiveTaxRate" class="text-[11px] text-slate-500 mt-1">Carga tributária efetiva: 1,91%</div>
+            </div>
+          </div>
+
+          <!-- Legal Diagnostic Alert Card -->
+          <div id="meiDiagnosticCard" class="rounded-2xl border p-5 transition-all bg-emerald-50 border-emerald-200 text-emerald-950">
+            <div class="flex items-start gap-3.5">
+              <div id="meiDiagnosticIcon" class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shrink-0">
+                ✓
+              </div>
+              <div class="space-y-1.5 flex-1">
+                <h3 id="meiDiagnosticTitle" class="font-bold text-base">
+                  Situação Segura: Seu CNPJ está dentro do limite do MEI!
+                </h3>
+                <p id="meiDiagnosticDescription" class="text-xs sm:text-sm leading-relaxed">
+                  Você ainda pode faturar <strong>R$ 26.200,00</strong> até 31 de dezembro sem desenquadrar para Microempresa (ME). Continue guardando as notas fiscais de compras e vendas para a declaração anual DASN-SIMEI.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart Container -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="font-bold text-base text-slate-900">Evolução do Faturamento Mensal vs. Linha de Teto Segura</h3>
+                <p class="text-xs text-slate-500">Compare cada mês com a média mensal ideal para não estourar o limite</p>
+              </div>
+              <button type="button" id="copyDasnReportBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition">
+                📋 Copiar Resumo p/ Contador (DASN)
+              </button>
+            </div>
+            <div class="relative h-72 w-full">
+              <canvas id="meiRevenueChart"></canvas>
+            </div>
+          </div>
+
+          <!-- NEW SUB-TOOL: Simulador de Multa e Juros por Atraso do DAS -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">Regra Oficial Receita Federal (0,33% ao dia + SELIC)</span>
+                <h3 class="font-bold text-base text-slate-900">Calculadora de DAS MEI em Atraso (Multa e Juros)</h3>
+              </div>
+              <span class="text-xs font-semibold text-slate-500">Vencimento padrão: Dia 20 de cada mês</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+              <div>
+                <label for="lateDasDaysInput" class="block text-xs font-bold text-slate-600 mb-1">Dias de Atraso do Boleto DAS</label>
+                <input id="lateDasDaysInput" type="number" min="1" max="365" value="25" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+              </div>
+              <div>
+                <label for="lateDasMonthsInput" class="block text-xs font-bold text-slate-600 mb-1">Quantidade de Guias Atrasadas</label>
+                <input id="lateDasMonthsInput" type="number" min="1" max="60" value="1" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+              </div>
+              <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-right">
+                <div class="text-[11px] text-amber-900 font-semibold">Total Atualizado c/ Multa e SELIC</div>
+                <div id="lateDasTotalOutput" class="text-xl font-extrabold text-amber-900">R$ 95,10</div>
+                <div id="lateDasDetailOutput" class="text-[10px] text-amber-700">Multa: R$ 7,18 (8,25%) + Juros: R$ 0,87</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GOOGLE ADSENSE IN-ARTICLE SLOT - Cole seu codigo <ins class="adsbygoogle"> abaixo quando aprovado -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 2: GERADOR DE ORÇAMENTO & RECIBO PDF COM LOGO E CARTEIRA DE CLIENTES
+         ========================================== -->
+    <section id="tab-recibos" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Com Upload de Logomarca, Carteira de Clientes e Download PDF Direto</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Gerador de Orçamento Comercial, Recibo e Ordem de Serviço</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Adicione sua logo, salve clientes frequentes e baixe o arquivo PDF diretamente no celular ou computador.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="sendQuoteWhatsappBtn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold shadow-sm transition">
+              📲 Copiar Texto p/ WhatsApp
+            </button>
+            <button type="button" id="downloadDirectPdfBtn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold shadow-sm transition">
+              ⬇️ Baixar PDF Direto (1-Clique)
+            </button>
+            <button type="button" id="printDocumentBtn" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition">
+              🖨️ Imprimir / Salvar em PDF
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Form Editor (6 cols) -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-5">
+          <div class="flex flex-wrap items-center justify-between border-b border-slate-100 pb-3 gap-2">
+            <h3 class="font-bold text-base text-slate-900">Dados do Documento</h3>
+            <div class="inline-flex rounded-lg bg-slate-100 p-1">
+              <button type="button" data-doctype="ORÇAMENTO COMERCIAL" class="doc-type-btn px-3 py-1 rounded-md text-xs font-bold bg-white text-slate-900 shadow-sm">Orçamento</button>
+              <button type="button" data-doctype="RECIBO DE PAGAMENTO" class="doc-type-btn px-3 py-1 rounded-md text-xs font-bold text-slate-600">Recibo</button>
+              <button type="button" data-doctype="ORDEM DE SERVIÇO" class="doc-type-btn px-3 py-1 rounded-md text-xs font-bold text-slate-600">Ordem de Serviço</button>
+            </div>
+          </div>
+
+          <!-- Company Logo Upload Bar -->
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <label for="docLogoUploadInput" class="block text-xs font-bold text-slate-700">Logomarca da Sua Empresa (Opcional)</label>
+              <span class="text-[11px] text-slate-500">Aparece no topo do PDF (PNG ou JPG)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <input id="docLogoUploadInput" type="file" accept="image/*" class="text-xs max-w-[200px]" />
+              <button type="button" id="clearLogoBtn" class="px-2.5 py-1 rounded bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-semibold">Remover</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="docProviderName" class="block text-xs font-bold text-slate-600 mb-1">Nome da Sua Empresa / MEI</label>
+              <input id="docProviderName" type="text" value="Silva Soluções Digitais & Manutenção MEI" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="docProviderCnpj" class="block text-xs font-bold text-slate-600 mb-1">Seu CNPJ ou CPF</label>
+              <input id="docProviderCnpj" type="text" value="48.192.734/0001-89" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="docProviderPhone" class="block text-xs font-bold text-slate-600 mb-1">Seu WhatsApp / Contato</label>
+              <input id="docProviderPhone" type="text" value="(11) 98765-4321" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="docPixKey" class="block text-xs font-bold text-slate-600 mb-1">Sua Chave PIX p/ Pagamento</label>
+              <input id="docPixKey" type="text" value="48.192.734/0001-89" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+          </div>
+
+          <!-- Saved Clients Bar -->
+          <div class="pt-3 border-t border-slate-100 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <label for="savedClientsSelect" class="text-xs font-bold uppercase tracking-wider text-emerald-700">Carteira Rápida de Clientes Salvos:</label>
+              <div class="flex items-center gap-2">
+                <select id="savedClientsSelect" class="rounded-lg border border-slate-300 px-2.5 py-1 text-xs font-medium">
+                  <option value="">-- Selecionar Cliente Salvo --</option>
+                </select>
+                <button type="button" id="saveCurrentClientBtn" class="px-2.5 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-bold text-xs transition">
+                  + Salvar Cliente Atual
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="docClientName" class="block text-xs font-bold text-slate-600 mb-1">Nome do Cliente / Empresa</label>
+                <input id="docClientName" type="text" value="Padaria & Confeitaria Bela Vista Ltda" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+              </div>
+              <div>
+                <label for="docClientDoc" class="block text-xs font-bold text-slate-600 mb-1">CPF / CNPJ do Cliente</label>
+                <input id="docClientDoc" type="text" value="19.442.110/0001-05" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+              </div>
+              <div>
+                <label for="docValidityDays" class="block text-xs font-bold text-slate-600 mb-1">Prazo de Validade / Garantia</label>
+                <input id="docValidityDays" type="text" value="Validade de 10 dias • Garantia de 90 dias" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+              </div>
+              <div>
+                <label for="docDiscountInput" class="block text-xs font-bold text-slate-600 mb-1">Desconto à Vista no PIX (R$)</label>
+                <input id="docDiscountInput" type="number" min="0" step="10" value="50" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Line Items -->
+          <div class="space-y-3 pt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-600">Itens do Serviço ou Produto</span>
+              <button type="button" id="addQuoteItemBtn" class="px-3 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-xs transition">
+                + Adicionar Item
+              </button>
+            </div>
+            <div id="quoteItemsEditorList" class="space-y-2.5">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div>
+            <label for="docNotesInput" class="block text-xs font-bold text-slate-600 mb-1">Observações e Forma de Pagamento</label>
+            <textarea id="docNotesInput" rows="2" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">Pagamento: 50% de entrada via PIX na aprovação e 50% na entrega do serviço concluído.</textarea>
+          </div>
+        </div>
+
+        <!-- Live Printable Preview (6 cols) -->
+        <div class="lg:col-span-6">
+          <div id="printableDocumentArea" class="bg-white rounded-2xl border-2 border-slate-200 shadow-md p-6 sm:p-8 space-y-6">
+            <div class="flex items-start justify-between border-b-2 border-emerald-600 pb-4 gap-4">
+              <div class="flex items-start gap-3.5">
+                <img id="previewCompanyLogoImg" src="" alt="Logo da Empresa" class="hidden w-14 h-14 object-contain rounded-lg border border-slate-200 p-1 bg-white" />
+                <div>
+                  <span id="previewDocTypeBadge" class="inline-block px-2.5 py-1 rounded bg-emerald-600 text-white font-extrabold text-xs tracking-wider uppercase">
+                    ORÇAMENTO COMERCIAL
+                  </span>
+                  <h3 id="previewProviderName" class="text-lg sm:text-xl font-extrabold text-slate-900 mt-2">
+                    Silva Soluções Digitais & Manutenção MEI
+                  </h3>
+                  <p id="previewProviderMeta" class="text-xs text-slate-500">
+                    CNPJ: 48.192.734/0001-89 • WhatsApp: (11) 98765-4321
+                  </p>
+                </div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="text-xs text-slate-400 font-semibold">Nº DO DOCUMENTO</div>
+                <div id="previewDocNumber" class="text-sm font-extrabold text-slate-800">#2026-0842</div>
+                <div id="previewDocDate" class="text-xs text-slate-500 mt-1">Emitido hoje</div>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div>
+                <span class="text-slate-400 font-bold uppercase block">Cliente / Tomador</span>
+                <span id="previewClientName" class="font-bold text-slate-900 text-sm">Padaria & Confeitaria Bela Vista Ltda</span>
+                <span id="previewClientDoc" class="block text-slate-500 mt-0.5">CPF/CNPJ: 19.442.110/0001-05</span>
+              </div>
+              <div>
+                <span class="text-slate-400 font-bold uppercase block">Condições & Garantia</span>
+                <span id="previewValidity" class="font-semibold text-slate-800">Validade de 10 dias • Garantia de 90 dias</span>
+                <span id="previewPixKey" class="block text-emerald-700 font-bold mt-0.5">Chave PIX: 48.192.734/0001-89</span>
+              </div>
+            </div>
+
+            <!-- Items Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-200 text-[11px] font-bold uppercase text-slate-500">
+                    <th class="py-2 pr-2">Descrição do Serviço / Produto</th>
+                    <th class="py-2 px-2 text-center">Qtd</th>
+                    <th class="py-2 px-2 text-right">Unitário</th>
+                    <th class="py-2 pl-2 text-right">Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody id="previewItemsTableBody" class="divide-y divide-slate-100 text-xs sm:text-sm">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Totals Box -->
+            <div class="border-t-2 border-slate-200 pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div class="text-xs text-slate-600 max-w-xs">
+                <span class="font-bold text-slate-800 block mb-0.5">Observações:</span>
+                <span id="previewNotes">Pagamento: 50% de entrada via PIX na aprovação e 50% na entrega do serviço concluído.</span>
+              </div>
+              <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 min-w-[210px] text-right space-y-1">
+                <div class="flex justify-between text-xs text-slate-600">
+                  <span>Subtotal:</span>
+                  <span id="previewSubtotal">R$ 1.250,00</span>
+                </div>
+                <div class="flex justify-between text-xs text-emerald-700 font-medium">
+                  <span>Desconto PIX:</span>
+                  <span id="previewDiscount">- R$ 50,00</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-slate-900 pt-1 border-t border-emerald-200">
+                  <span>Total Final:</span>
+                  <span id="previewFinalTotal">R$ 1.200,00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Signature line -->
+            <div class="pt-6 grid grid-cols-2 gap-6 text-center text-xs text-slate-400">
+              <div class="border-t border-slate-300 pt-2">
+                Assinatura do Prestador (MEI)
+              </div>
+              <div class="border-t border-slate-300 pt-2">
+                De Acordo do Cliente
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 3: GERADOR DE COBRANÇA PIX (BR CODE + QR + PNG DOWNLOAD)
+         ========================================== -->
+    <section id="tab-pix" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Padrão Oficial Banco Central do Brasil (EMVCo BR Code CRC16)</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Gerador de Placa PIX QR Code e Código "Copia e Cola" com Valor Fixo</h2>
+        <p class="text-xs sm:text-sm text-slate-500">Gere cobranças instantâneas sem taxas de maquininha e baixe a imagem do QR Code para enviar no WhatsApp.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Configurar Cobrança PIX</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="pixKeyType" class="block text-xs font-bold text-slate-600 mb-1">Tipo da Sua Chave PIX</label>
+              <select id="pixKeyType" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-medium">
+                <option value="cnpj">CNPJ / CPF (Apenas números)</option>
+                <option value="phone">Celular (+55DDDNúmero)</option>
+                <option value="email">E-mail</option>
+                <option value="random">Chave Aleatória (EVP)</option>
+              </select>
+            </div>
+            <div>
+              <label for="pixKeyValue" class="block text-xs font-bold text-slate-600 mb-1">Sua Chave PIX</label>
+              <input id="pixKeyValue" type="text" value="48192734000189" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="pixMerchantName" class="block text-xs font-bold text-slate-600 mb-1">Nome do Recebedor (Até 25 letras)</label>
+              <input id="pixMerchantName" type="text" maxlength="25" value="SILVA SOLUCOES MEI" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="pixMerchantCity" class="block text-xs font-bold text-slate-600 mb-1">Cidade (Sem acentos, até 15 letras)</label>
+              <input id="pixMerchantCity" type="text" maxlength="15" value="SAO PAULO" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="pixAmount" class="block text-xs font-bold text-slate-600 mb-1">Valor da Cobrança (R$)</label>
+              <input id="pixAmount" type="number" step="0.01" min="0" value="250.00" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-bold text-emerald-700" />
+            </div>
+            <div>
+              <label for="pixTxId" class="block text-xs font-bold text-slate-600 mb-1">Identificador / Pedido (TXID)</label>
+              <input id="pixTxId" type="text" maxlength="20" value="PEDIDO842" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+          </div>
+
+          <button type="button" id="generatePixBtn" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition">
+            ⚡ Atualizar QR Code e Código PIX Copia e Cola
+          </button>
+        </div>
+
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col items-center justify-between space-y-5">
+          <div class="text-center space-y-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">QR Code Pronto para Escaneamento</span>
+            <h4 id="pixPreviewTitle" class="text-lg font-extrabold text-slate-900">Pagamento de R$ 250,00 para SILVA SOLUCOES MEI</h4>
+          </div>
+
+          <div class="p-4 bg-white border-2 border-emerald-500 rounded-2xl shadow-sm flex items-center justify-center">
+            <div id="pixQrCodeContainer" class="w-48 h-48 flex items-center justify-center"></div>
+          </div>
+
+          <div class="w-full space-y-2">
+            <label for="pixPayloadOutput" class="block text-xs font-bold uppercase text-slate-500">Código Oficial PIX Copia e Cola (Com CRC16):</label>
+            <textarea id="pixPayloadOutput" readonly rows="3" class="w-full rounded-xl bg-slate-100 border border-slate-300 p-3 text-xs font-mono text-slate-700 select-all"></textarea>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+              <button type="button" id="copyPixCodeBtn" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition">
+                📋 Copiar Código PIX Copia e Cola
+              </button>
+              <button type="button" id="copyPixWhatsappBtn" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition">
+                📲 Copiar Cobrança p/ WhatsApp
+              </button>
+              <button type="button" id="downloadPixQrPngBtn" class="py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition">
+                🖼️ Baixar Imagem QR
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 4: BUSCADOR DE CNAE MEI 2026 & CONSULTOR DE NOTA FISCAL (NFS-e)
+         ========================================== -->
+    <section id="tab-cnae" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Base de Ocupações Permitidas no MEI 2026 + Regras NFS-e Nacional</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Buscador de CNAE MEI e Consulta de Obrigatoriedade de Nota Fiscal</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Pesquise sua profissão para descobrir o código CNAE oficial, o valor do DAS 2026 e qual tipo de Nota Fiscal (NFS-e ou NF-e) você deve emitir.</p>
+          </div>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2">
+          <div class="sm:col-span-8">
+            <input id="cnaeSearchInput" type="text" placeholder="Digite sua profissão ou código (ex: Eletricista, Cabeleireiro, Marketing, Motorista, Bolo, 4781)..." class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-medium focus:border-emerald-600 focus:outline-none" />
+          </div>
+          <div class="sm:col-span-4">
+            <select id="cnaeCategoryFilter" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm font-semibold">
+              <option value="todos">Todas as Categorias (Serviços, Comércio e Indústria)</option>
+              <option value="Serviços">Apenas Prestação de Serviços (ISS)</option>
+              <option value="Comércio">Apenas Comércio / Vendas (ICMS)</option>
+              <option value="Indústria">Apenas Indústria / Fabricação (ICMS)</option>
+              <option value="Caminhoneiro">MEI Caminhoneiro (Transporte de Cargas)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- CNAE Table Results -->
+        <div class="overflow-x-auto border border-slate-200 rounded-xl">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-200 text-[11px] font-bold uppercase text-slate-600">
+                <th class="py-3 px-4">Código CNAE</th>
+                <th class="py-3 px-4">Ocupação / Profissão Permitida</th>
+                <th class="py-3 px-4">Setor / Imposto</th>
+                <th class="py-3 px-4">DAS 2026</th>
+                <th class="py-3 px-4">Tipo de Nota Fiscal</th>
+              </tr>
+            </thead>
+            <tbody id="cnaeTableBody" class="divide-y divide-slate-100 text-xs sm:text-sm">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 5: GERADOR DE CONTRATO DE PRESTAÇÃO DE SERVIÇOS MEI (LEI BRASILEIRA)
+         ========================================== -->
+    <section id="tab-contratos" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Nos Termos do Código Civil Brasileiro (Art. 593 a 609 — Sem Vínculo CLT)</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Gerador de Contrato de Prestação de Serviços para MEI e Autônomos</h2>
+          <p class="text-xs sm:text-sm text-slate-500">Crie um contrato jurídico blindado com cláusula de multa por atraso, escopo detalhado e foro da sua cidade.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" id="copyContractBtn" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold transition">
+            📋 Copiar Contrato Completo
+          </button>
+          <button type="button" id="downloadContractPdfBtn" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold transition">
+            ⬇️ Baixar Contrato em PDF
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-2">Preencha os Dados das Partes</h3>
+          <div class="space-y-3">
+            <div>
+              <label for="ctContractorName" class="block text-xs font-bold text-slate-600 mb-1">Nome do Cliente (CONTRATANTE)</label>
+              <input id="ctContractorName" type="text" value="Comércio de Alimentos Jardim Paulista Ltda" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="ctContractorDoc" class="block text-xs font-bold text-slate-600 mb-1">CPF ou CNPJ do Cliente</label>
+              <input id="ctContractorDoc" type="text" value="19.442.110/0001-05" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="ctProviderName" class="block text-xs font-bold text-slate-600 mb-1">Sua Empresa MEI (CONTRATADA)</label>
+              <input id="ctProviderName" type="text" value="Silva Soluções Digitais & Manutenção MEI" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="ctProviderCnpj" class="block text-xs font-bold text-slate-600 mb-1">Seu CNPJ MEI</label>
+              <input id="ctProviderCnpj" type="text" value="48.192.734/0001-89" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+            <div>
+              <label for="ctServiceObject" class="block text-xs font-bold text-slate-600 mb-1">Objeto / Serviço que será executado</label>
+              <textarea id="ctServiceObject" rows="2" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm">Desenvolvimento de website institucional, configuração de catálogo digital e manutenção preventiva mensal.</textarea>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="ctTotalValue" class="block text-xs font-bold text-slate-600 mb-1">Valor Total (R$)</label>
+                <input id="ctTotalValue" type="number" step="50" value="1800" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-bold" />
+              </div>
+              <div>
+                <label for="ctDeadlineDays" class="block text-xs font-bold text-slate-600 mb-1">Prazo de Entrega</label>
+                <input id="ctDeadlineDays" type="text" value="15 dias corridos" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+              </div>
+            </div>
+            <div>
+              <label for="ctCityForum" class="block text-xs font-bold text-slate-600 mb-1">Cidade / UF do Foro Jurídico</label>
+              <input id="ctCityForum" type="text" value="São Paulo / SP" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div id="printableContractArea" class="bg-white rounded-2xl border-2 border-slate-200 p-6 sm:p-8 shadow-md space-y-4 text-xs sm:text-sm leading-relaxed text-slate-800">
+            <div class="text-center border-b border-slate-200 pb-4">
+              <h3 class="font-extrabold text-base sm:text-lg text-slate-900 uppercase">INSTRUMENTO PARTICULAR DE CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h3>
+              <p class="text-xs text-slate-500 mt-1">Regido pelos Artigos 593 a 609 do Código Civil Brasileiro (Lei nº 10.406/2002)</p>
+            </div>
+            <div id="contractLiveBody" class="space-y-3">
+              <!-- Populated dynamically by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 6: CALCULADORA DE PREÇO HORA & PROJETO
+         ========================================== -->
+    <section id="tab-precificacao" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Precificação Inteligente para Autônomos e Prestadores de Serviço</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Calculadora de Valor da Hora Técnica e Orçamento de Projetos</h2>
+        <p class="text-xs sm:text-sm text-slate-500">Descubra quanto cobrar por hora e por projeto garantindo férias remuneradas, 13º salário, pagamento do DAS e margem de lucro real.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
+          <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Suas Metas e Custos Mensais</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="rateDesiredSalary" class="block text-xs font-bold text-slate-600 mb-1">Salário Líquido Desejado / Mês (R$)</label>
+              <input id="rateDesiredSalary" type="number" step="100" value="4500" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="rateFixedCosts" class="block text-xs font-bold text-slate-600 mb-1">Custos Fixos (Internet, Luz, Softwares, MEI)</label>
+              <input id="rateFixedCosts" type="number" step="50" value="650" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="rateHoursPerDay" class="block text-xs font-bold text-slate-600 mb-1">Horas Produtivas Faturáveis por Dia</label>
+              <input id="rateHoursPerDay" type="number" min="1" max="16" value="6" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="rateDaysPerWeek" class="block text-xs font-bold text-slate-600 mb-1">Dias Trabalhados por Semana</label>
+              <input id="rateDaysPerWeek" type="number" min="1" max="7" value="5" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="rateProfitMargin" class="block text-xs font-bold text-slate-600 mb-1">Reserva de Férias + Lucro da Empresa (%)</label>
+              <input id="rateProfitMargin" type="number" min="0" max="100" value="25" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="rateProjectHours" class="block text-xs font-bold text-slate-600 mb-1">Horas Estimadas p/ Este Projeto</label>
+              <input id="rateProjectHours" type="number" min="1" value="24" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-bold text-emerald-700" />
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-4">
+          <div class="bg-gradient-to-br from-slate-900 to-emerald-950 text-white rounded-2xl p-6 shadow-md space-y-5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase tracking-wider font-bold text-emerald-300">Resultado da Precificação Profissional</span>
+              <span class="text-xs bg-white/10 px-2.5 py-1 rounded-full">Cálculo Ideal MEI</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                <div class="text-xs text-emerald-200">Valor Mínimo da Sua Hora</div>
+                <div id="outHourlyRate" class="text-2xl sm:text-3xl font-extrabold mt-1">R$ 53,65 /h</div>
+                <div id="outMonthlyHours" class="text-[11px] text-slate-300 mt-1">Baseado em 120 horas produtivas/mês</div>
+              </div>
+              <div class="bg-emerald-500/20 rounded-xl p-4 border border-emerald-400/30">
+                <div class="text-xs text-emerald-200">Preço Recomendado do Projeto</div>
+                <div id="outProjectTotal" class="text-2xl sm:text-3xl font-extrabold text-emerald-300 mt-1">R$ 1.287,60</div>
+                <div id="outProjectSummary" class="text-[11px] text-emerald-100 mt-1">Para um serviço de 24 horas</div>
+              </div>
+            </div>
+            <div class="bg-white/5 rounded-xl p-4 text-xs space-y-1.5 text-slate-200">
+              <div class="flex justify-between">
+                <span>Faturamento Mensal Necessário:</span>
+                <strong id="outRequiredMonthlyGross">R$ 6.437,50</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Valor do Seu Dia de Trabalho (Diária):</span>
+                <strong id="outDailyRate">R$ 321,88 /dia</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Status frente ao Teto Anual do MEI (R$ 81 mil):</span>
+                <strong id="outMeiFitStatus" class="text-emerald-300">Compatível (R$ 77.250/ano)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TAB 7: ENCICLOPÉDIA MEI 2026 (LONG-FORM BLOG READER P/ ADSENSE)
+         ========================================== -->
+    <section id="tab-guias" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">6 Guias Completos de Alto Valor Editorial (Aprovação Google AdSense & SEO Brasil)</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Enciclopédia Prática do Microempreendedor Individual (MEI 2026)</h2>
+        <p class="text-xs sm:text-sm text-slate-500">Clique em qualquer artigo abaixo para abrir a leitura completa com tabelas comparativas, passo a passo oficial e dicas contábeis.</p>
+      </div>
+
+      <!-- Article Cards Grid -->
+      <div id="blogCardsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Populated dynamically by JS from FULL_BLOG_ARTICLES -->
+      </div>
+
+      <!-- Full Article Reader Box -->
+      <div id="fullArticleReaderBox" class="bg-white rounded-2xl border-2 border-emerald-600 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-4">
+          <div>
+            <span id="readerArticleCategory" class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">Guia Oficial Completo</span>
+            <h3 id="readerArticleTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-2"></h3>
+            <p id="readerArticleMeta" class="text-xs text-slate-500 mt-1"></p>
+          </div>
+        </div>
+        <div id="readerArticleContent" class="space-y-4 text-sm text-slate-700 leading-relaxed">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Permanent Rich SEO & FAQ Section Below Tools (Essential for Google AdSense Approval) -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Perguntas Frequentes (FAQ Oficial MEI 2026)</span>
+        <h2 class="text-xl font-extrabold text-slate-900">Guia Rápido: Cálculo do DAS 2026, Limite Proporcional, Nota Fiscal Nacional e Declaração DASN-SIMEI</h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Consulte abaixo as respostas técnicas atualizadas conforme as regras da Receita Federal do Brasil e a Lei Complementar nº 123/2006.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <h3 class="font-bold text-slate-900">1. Qual o valor oficial do DAS MEI em 2026?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Com o salário mínimo de <strong>R$ 1.621,00 em 2026</strong>, a contribuição previdenciária do INSS (5%) é de <strong>R$ 81,05</strong>. Somando R$ 1,00 de ICMS (Comércio/Indústria) o total é <strong>R$ 82,05</strong>; para Serviços (+R$ 5,00 de ISS) é <strong>R$ 86,05</strong>; e para Comércio e Serviços juntos é <strong>R$ 87,05</strong>.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <h3 class="font-bold text-slate-900">2. O que é o Limite Proporcional no primeiro ano de CNPJ?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Se você abriu seu MEI no decorrer do ano, seu teto não é R$ 81.000,00, mas sim <strong>R$ 6.750,00 multiplicado pelo número de meses ativos</strong> entre o mês de abertura do CNPJ e dezembro.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <h3 class="font-bold text-slate-900">3. Quando devo entregar a Declaração Anual (DASN-SIMEI)?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Todo Microempreendedor Individual deve enviar a declaração de faturamento bruto anual até o dia <strong>31 de maio de cada ano</strong> referente ao ano anterior, mesmo que o faturamento tenha sido R$ 0,00. O atraso gera multa mínima de R$ 50,00.
+          </p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
+          <h3 class="font-bold text-slate-900">4. Meus dados financeiros ficam salvos em algum servidor?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Não! Por segurança e conformidade com a <strong>LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)</strong>, todos os valores que você digita ficam armazenados exclusivamente na memória local do seu próprio navegador.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Sticky Bottom Navigation Bar -->
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 shadow-lg px-2 py-1.5 flex items-center justify-around">
+    <button type="button" data-tab="simulador" class="nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-emerald-600">
+      <span>📊</span><span>DAS/Teto</span>
+    </button>
+    <button type="button" data-tab="recibos" class="nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600">
+      <span>📄</span><span>Recibo PDF</span>
+    </button>
+    <button type="button" data-tab="pix" class="nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600">
+      <span>⚡</span><span>PIX QR</span>
+    </button>
+    <button type="button" data-tab="cnae" class="nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600">
+      <span>🔍</span><span>CNAE</span>
+    </button>
+    <button type="button" data-tab="guias" class="nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600">
+      <span>📚</span><span>Guias</span>
+    </button>
+  </div>
+
+  <!-- LGPD Cookie Consent Banner (Mandatory for Google AdSense in Brazil) -->
+  <div id="lgpdCookieBanner" class="fixed bottom-16 lg:bottom-4 left-4 right-4 max-w-4xl mx-auto z-40 bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="text-xs text-slate-300 leading-relaxed">
+      🍪 <strong>Aviso de Privacidade e LGPD (Lei nº 13.709/2018):</strong> Utilizamos armazenamento local para salvar seus cálculos no navegador e cookies do Google AdSense para exibir anúncios relevantes. Nenhum dado financeiro ou chave PIX é enviado para servidores externos.
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <button type="button" id="acceptLgpdCookiesBtn" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition">
+        Aceitar e Continuar
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer with Mandatory AdSense Compliance Links -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 border-t border-slate-800 mt-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">MEI Master.br 2026 (v2.0 Production)</span> — Plataforma Independente de Apoio ao Empreendedor Brasileiro.
+        <p class="text-[11px] text-slate-500 mt-1">Em conformidade com a LGPD (Lei nº 13.709/2018), Marco Civil da Internet e Políticas do Google AdSense.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <button type="button" data-legal="privacidade" class="legal-modal-btn hover:text-white underline">Política de Privacidade & Cookies</button>
+        <button type="button" data-legal="termos" class="legal-modal-btn hover:text-white underline">Termos de Uso</button>
+        <button type="button" data-legal="sobre" class="legal-modal-btn hover:text-white underline">Sobre & Contato</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-2">
+    <span class="text-emerald-400">✓</span>
+    <span id="toastMessageText">Copiado com sucesso!</span>
+  </div>
+
+  <!-- Official Receita Federal Monthly Report Modal -->
+  <div id="officialDasnModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 class="font-extrabold text-base sm:text-lg text-slate-900">📄 Relatório Anual de Receitas Brutas (Modelo DASN-SIMEI)</h3>
+        <button type="button" id="closeOfficialDasnModalBtn" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">Fechar ✕</button>
+      </div>
+      <div id="officialDasnModalContent" class="text-xs sm:text-sm text-slate-700 space-y-3 font-mono bg-slate-50 p-4 rounded-xl border border-slate-200 whitespace-pre-wrap"></div>
+      <div class="flex justify-end gap-2">
+        <button type="button" id="copyOfficialDasnModalBtn" class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs">Copiar Relatório Completo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal Compliance Modal (Privacy Policy / Terms for AdSense Approval) -->
+  <div id="legalModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 id="legalModalTitle" class="font-extrabold text-lg text-slate-900">Política de Privacidade e LGPD</h3>
+        <button type="button" id="closeLegalModalBtn" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">Fechar ✕</button>
+      </div>
+      <div id="legalModalBody" class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // ==========================================
+      // STATE & DEFAULT DATA
+      // ==========================================
+      const MONTHS_PT = [
+        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+      ];
+
+      const DEFAULT_MONTHLY_REVENUE = [4200, 4500, 4800, 4300, 5100, 4900, 4600, 5200, 4400, 4700, 4100, 4000];
+      let monthlyRevenues = [...DEFAULT_MONTHLY_REVENUE];
+
+      let quoteItems = [
+        { id: 1, desc: 'Criação de Identidade Visual e Cardápio Digital QR', qty: 1, price: 750 },
+        { id: 2, desc: 'Configuração de Perfil Google Meu Negócio + Catálogo WhatsApp', qty: 1, price: 500 }
+      ];
+      let savedClients = [
+        { name: 'Padaria & Confeitaria Bela Vista Ltda', doc: '19.442.110/0001-05' },
+        { name: 'Clínica Odontológica Sorriso Perfeito', doc: '32.110.890/0001-44' }
+      ];
+      let currentDocType = 'ORÇAMENTO COMERCIAL';
+      let adPreviewVisible = true;
+      let revenueChartInstance = null;
+      let currentMonthlyDasGlobal = 87.05;
+
+      // Searchable CNAE 2026 Database (High-Volume Brazilian Professions)
+      const CNAE_DATABASE = [
+        { code: '4781-4/00', title: 'Comerciante de Artigos do Vestuário e Acessórios (Loja de Roupas)', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual (DANFE)' },
+        { code: '9602-5/01', title: 'Cabeleireiro(a), Barbeiro(a) e Manicure / Pedicure Independente', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '4321-5/00', title: 'Eletricista e Instalador de Sistemas Elétricos Residenciais', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '7319-0/02', title: 'Promotor(a) de Vendas, Gestor de Tráfego e Marketing Digital', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '5620-1/04', title: 'Fornecimento de Alimentos Preparados (Marmitex, Doces e Salgados)', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e / NFC-e Estadual' },
+        { code: '5320-2/02', title: 'Entregador de Mercadorias / Motoboy / Courier de Aplicativo', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '9511-8/00', title: 'Técnico(a) de Manutenção de Computadores e Celulares', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '8599-6/04', title: 'Instrutor(a) de Cursos Livres, Idiomas e Treinamento Profissional', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '4399-1/03', title: 'Pedreiro, Pintor de Obras, Gesseiro e Azulejista', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '7420-0/01', title: 'Fotógrafo(a) Comercial, Eventos e Produção Audiovisual', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '1091-1/02', title: 'Fabricante de Produtos de Padaria, Confeitaria e Bolos Caseiros', sector: 'Indústria', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual' },
+        { code: '4520-0/01', title: 'Mecânico(a) de Veículos Automotores e Funilaria', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional / NF-e Peças' },
+        { code: '8219-9/99', title: 'Digitador(a), Assistente Virtual e Apoio Administrativo', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
+        { code: '4751-2/01', title: 'Comerciante de Equipamentos e Suprimentos de Informática', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual' },
+        { code: '4930-2/02', title: 'Transportador Autônomo de Cargas Municipal e Interestadual (MEI Caminhoneiro)', sector: 'Caminhoneiro', tax: 'INSS 12% + ICMS/ISS', das: 'R$ 200,52', nf: 'CT-e / NFS-e Transporte' }
+      ];
+
+      // Full-Length Editorial Articles for AdSense Approval & Organic SEO
+      const FULL_BLOG_ARTICLES = [
+        {
+          id: 'teto-mei-2026',
+          category: 'Impostos & Limites 2026',
+          title: 'O que acontece se o MEI ultrapassar o limite de R$ 81.000 em 2026? (Cálculo Passo a Passo)',
+          meta: 'Leitura: 6 min • Atualizado conforme regras da Receita Federal 2026',
+          summary: 'Entenda a diferença exata entre estourar o teto em até 20% (R$ 97.200) ou acima de 20% e veja como calcular o DAS complementar.',
+          html: `
+            <p>O limite anual de faturamento bruto do Microempreendedor Individual (MEI) permanece em <strong>R$ 81.000,00 por ano</strong> (média de R$ 6.750,00 mensais) para as categorias gerais, e <strong>R$ 251.600,00</strong> para o MEI Caminhoneiro. Contudo, muitos empreendedores acabam vendendo mais do que o esperado no final do ano e têm dúvidas sobre as penalidades.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">1. Cenário A: Faturamento entre R$ 81.000,01 e R$ 97.200,00 (Até 20% de excesso)</h4>
+            <p>Se a sua receita bruta anual ficar dentro da faixa de tolerância de 20% (ou seja, até R$ 97.200,00 no ano completo), o desenquadramento não é retroativo. Você continuará pagando seu boleto DAS normal até dezembro. Em janeiro do ano seguinte, ao transmitir a declaração anual (DASN-SIMEI), o sistema gerará uma <strong>guia DAS Complementar</strong> apenas sobre a diferença que ultrapassou R$ 81 mil (com alíquota do Simples Nacional entre 4% para comércio e 6% para serviços). A partir de 1º de janeiro seguinte, seu CNPJ passa a ser Microempresa (ME).</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">2. Cenário B: Faturamento acima de R$ 97.200,00 (Mais de 20% de excesso)</h4>
+            <p>Caso suas vendas ultrapassem R$ 97.200,00, a regra é severa: o desenquadramento ocorre de forma <strong>retroativa a 1º de janeiro do próprio ano</strong> em que houve o excesso. Isso significa que você deixará de ser MEI desde o início daquele ano e precisará recolher os impostos do Simples Nacional sobre todo o faturamento acumulado, acrescidos de juros SELIC e multa.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">3. Atenção ao Limite Proporcional no Primeiro Ano de CNPJ</h4>
+            <p>Se você abriu seu CNPJ em julho (6 meses ativos no ano), seu teto máximo naquele ano será de <strong>6 x R$ 6.750,00 = R$ 40.500,00</strong>, e a faixa de tolerância de 20% será de R$ 48.600,00. Utilize sempre o nosso Simulador na Aba 1 para monitorar sua margem mensal com segurança.</p>
+          `
+        },
+        {
+          id: 'nfse-nacional-2026',
+          category: 'Notas Fiscais & Emissão',
+          title: 'Guia Definitivo da NFS-e Nacional 2026: Quando o MEI é obrigado a emitir Nota Fiscal?',
+          meta: 'Leitura: 5 min • Portal Emissor Nacional gov.br/nfse',
+          summary: 'Descubra quando o Recibo em PDF é suficiente e quando a emissão da Nota Fiscal Eletrônica no portal gov.br é obrigatória por lei.',
+          html: `
+            <p>Pela Lei Complementar nº 123/2006, o Microempreendedor Individual possui um tratamento simplificado quanto à emissão de documentos fiscais. Saber exatamente quando emitir um Recibo Comercial ou uma Nota Fiscal evita multas e economiza tempo.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">1. Vendas e Serviços para Pessoa Física (CPF)</h4>
+            <p>Quando você atende um consumidor final pessoa física (CPF), <strong>o MEI está dispensado por lei de emitir Nota Fiscal</strong>, a menos que o próprio cliente solicite o documento. Nesses casos cotidianos, o <strong>Recibo de Pagamento ou Ordem de Serviço em PDF</strong> (que você gera gratuitamente na Aba 2 desta plataforma) é o comprovante ideal para registrar a transação e a garantia.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">2. Vendas e Serviços para Outras Empresas (CNPJ) ou Órgãos Públicos</h4>
+            <p>Sempre que o seu cliente for uma pessoa jurídica (CNPJ), a emissão da Nota Fiscal é <strong>100% obrigatória</strong>. Para prestadores de serviços, a emissão é feita gratuitamente pelo <strong>Portal Nacional da NFS-e (gov.br/nfse)</strong> ou pelo aplicativo oficial NFS-e Mobile, utilizando o código de tributação nacional correspondente ao seu CNAE.</p>
+          `
+        },
+        {
+          id: 'inss-beneficios-mei',
+          category: 'Previdência & INSS',
+          title: 'Direitos do MEI no INSS em 2026: Aposentadoria, Auxílio-Doença e Salário-Maternidade',
+          meta: 'Leitura: 5 min • Regras de Carência Previdenciária',
+          summary: 'Veja todos os benefícios garantidos pelo pagamento em dia da guia DAS de R$ 81,05+ e como complementar para se aposentar com valor maior.',
+          html: `
+            <p>O pagamento em dia do Documento de Arrecadação do Simples Nacional (DAS) garante cobertura previdenciária completa junto ao INSS tanto para o titular do MEI quanto para seus dependentes legais.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">Prazos de Carência Oficial do INSS para o MEI:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Salário-Maternidade:</strong> 10 contribuições mensais pagas em dia antes do parto ou adoção.</li>
+              <li><strong>Auxílio por Incapacidade Temporária (Auxílio-Doença):</strong> 12 meses de contribuição (isento de carência em caso de acidente de qualquer natureza).</li>
+              <li><strong>Aposentadoria por Idade:</strong> 180 contribuições mensais (15 anos) + idade mínima (62 anos para mulheres e 65 anos para homens).</li>
+              <li><strong>Pensão por Morte e Auxílio-Reclusão:</strong> Garantidos aos dependentes desde o primeiro pagamento em dia.</li>
+            </ul>
+            <p class="pt-2"><strong>Dica Contábil:</strong> Como a alíquota do MEI é reduzida (5% do salário mínimo), a aposentadoria padrão é de 1 salário mínimo (R$ 1.621,00 em 2026). Caso deseje se aposentar por tempo de contribuição ou com valor superior, é possível emitir uma guia GPS complementar de 15% (código 1910).</p>
+          `
+        },
+        {
+          id: 'pix-cnpj-receita-federal',
+          category: 'Fiscalização & Bancos',
+          title: 'Cruzamento de Dados do PIX e Cartão pela Receita Federal: O que todo MEI precisa saber',
+          meta: 'Leitura: 6 min • Declaração DIMP e e-Financeira',
+          summary: 'Como os bancos e maquininhas informam suas vendas ao Fisco e por que você nunca deve misturar o PIX do CPF com o CNPJ.',
+          html: `
+            <p>Muitos microempreendedores acreditam que apenas os valores com Nota Fiscal emitida entram na conta do limite anual de R$ 81.000,00. Na realidade, todas as instituições financeiras e operadoras de maquininhas enviam relatórios mensais (DIMP e e-Financeira) diretamente para a Receita Federal e para as Secretarias Estaduais de Fazenda.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">3 Regras de Ouro para Evitar Malha Fina no MEI:</h4>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>Separe Conta PF e Conta PJ:</strong> Receba todas as vendas do seu negócio exclusivamente em uma conta bancária PJ vinculada ao seu CNPJ.</li>
+              <li><strong>Some Tudo no Relatório Mensal:</strong> Na declaração anual DASN-SIMEI, informe a soma das vendas com nota fiscal e sem nota fiscal (vendas para CPF via PIX, dinheiro ou cartão).</li>
+              <li><strong>Guarde Notas de Compra:</strong> Se o volume de compras de mercadorias no seu CNPJ ultrapassar 80% do valor declarado de vendas, o sistema pode identificar omissão de receita.</li>
+            </ul>
+          `
+        },
+        {
+          id: 'parcelamento-divida-mei',
+          category: 'Regularização CNPJ',
+          title: 'Como Parcelar Boletos DAS Atrasados e Evitar o Cancelamento do CNPJ na Dívida Ativa',
+          meta: 'Leitura: 5 min • Portal Simples Nacional e Regularize PGFN',
+          summary: 'Passo a passo para parcelar débitos do MEI em até 60 vezes com parcela mínima de R$ 50,00 e recuperar a qualidade de segurado do INSS.',
+          html: `
+            <p>Deixar guias DAS em atraso por longo período pode levar à inscrição do débito em Dívida Ativa da União (no CPF do empresário) e até ao cancelamento definitivo do CNPJ por inadimplência.</p>
+            <h4 class="font-extrabold text-slate-900 text-base pt-2">Como funciona o Parcelamento Oficial:</h4>
+            <p>No Portal do Simples Nacional (ou no Portal Regularize da PGFN, caso o débito já tenha sido enviado para a Dívida Ativa), o MEI pode dividir o saldo devedor em <strong>até 60 parcelas mensais</strong>, respeitando o valor mínimo de <strong>R$ 50,00 por parcela</strong>. Para manter o parcelamento ativo, é fundamental pagar a primeira parcela até o vencimento e manter os DAS do ano corrente rigorosamente em dia.</p>
+          `
+        },
+        {
+          id: 'distribuicao-lucros-irpf-mei',
+          category: 'Imposto de Renda PF',
+          title: 'Cálculo da Parcela Isenta de Lucro do MEI no Imposto de Renda Pessoa Física (8%, 16% e 32%)',
+          meta: 'Leitura: 6 min • Declaração de IRPF do Titular MEI',
+          summary: 'Aprenda a calcular quanto do dinheiro transferido do CNPJ para o seu CPF é 100% isento de Imposto de Renda.',
+          html: `
+            <p>Uma coisa é a Declaração Anual do CNPJ (DASN-SIMEI); outra é a Declaração de Imposto de Renda da Pessoa Física (IRPF) do dono do MEI. Pela legislação federal, uma parte do lucro do MEI pode ser transferida para a pessoa física com <strong>isenção total de Imposto de Renda</strong>:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li><strong>8% da Receita Bruta Anual:</strong> Para atividades de Comércio, Indústria e Transporte de Cargas.</li>
+              <li><strong>16% da Receita Bruta Anual:</strong> Para atividades de Transporte de Passageiros.</li>
+              <li><strong>32% da Receita Bruta Anual:</strong> Para Prestação de Serviços em geral.</li>
+            </ul>
+            <p class="pt-2">Caso você mantenha escrituração contábil assinada por contador, 100% do lucro líquido comprovado pode ser distribuído com isenção de IRPF.</p>
+          `
+        }
+      ];
+
+      // Load saved state safely
+      try {
+        const savedRev = localStorage.getItem('mei_master_revenues_v2');
+        if (savedRev) {
+          const parsed = JSON.parse(savedRev);
+          if (Array.isArray(parsed) && parsed.length === 12) {
+            monthlyRevenues = parsed.map(n => Number(n) || 0);
+          }
+        }
+        const savedCli = localStorage.getItem('mei_master_clients_v2');
+        if (savedCli) {
+          const parsedCli = JSON.parse(savedCli);
+          if (Array.isArray(parsedCli) && parsedCli.length > 0) {
+            savedClients = parsedCli;
+          }
+        }
+        const cookieOk = localStorage.getItem('mei_master_lgpd_ok');
+        if (cookieOk === '1') {
+          const banner = document.getElementById('lgpdCookieBanner');
+          if (banner) banner.classList.add('hidden');
+        }
+      } catch (e) {}
+
+      // ==========================================
+      // HELPERS
+      // ==========================================
+      function formatBRL(value) {
+        return Number(value || 0).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        });
+      }
+
+      function showToast(msg) {
+        const banner = document.getElementById('toastBanner');
+        const text = document.getElementById('toastMessageText');
+        text.textContent = msg;
+        banner.classList.remove('hidden');
+        clearTimeout(window.__toastTimer);
+        window.__toastTimer = setTimeout(() => {
+          banner.classList.add('hidden');
+        }, 3200);
+      }
+
+      function copyTextToClipboard(text, successMessage) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => {
+            showToast(successMessage);
+          }).catch(() => {
+            fallbackCopy(text, successMessage);
+          });
+        } else {
+          fallbackCopy(text, successMessage);
+        }
+      }
+
+      function fallbackCopy(text, successMessage) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMessage);
+        } catch (err) {
+          showToast('Copie manualmente o texto selecionado.');
+        }
+        document.body.removeChild(ta);
+      }
+
+      // ==========================================
+      // NAVIGATION TABS + DYNAMIC SEO TITLES
+      // ==========================================
+      const TAB_SEO_TITLES = {
+        simulador: 'Simulador de Faturamento e Imposto DAS MEI 2026 — MEI Master.br',
+        recibos: 'Gerador de Orçamento e Recibo em PDF com Logo — MEI Master.br',
+        pix: 'Gerador de QR Code PIX Oficial e Copia e Cola — MEI Master.br',
+        cnae: 'Tabela CNAE MEI 2026 e Consulta Nota Fiscal NFS-e — MEI Master.br',
+        contratos: 'Gerador de Contrato de Prestação de Serviços MEI — MEI Master.br',
+        precificacao: 'Calculadora de Preço Hora e Orçamento Freelancer — MEI Master.br',
+        guias: 'Enciclopédia e Guias Práticos do MEI 2026 — MEI Master.br'
+      };
+
+      const tabButtons = document.querySelectorAll('.nav-tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      function activateTab(target) {
+        tabButtons.forEach(b => {
+          const isMatch = b.getAttribute('data-tab') === target;
+          if (b.closest('header')) {
+            if (isMatch) {
+              b.classList.add('bg-emerald-600', 'text-white', 'shadow-sm');
+              b.classList.remove('text-slate-600', 'hover:bg-slate-100');
+            } else {
+              b.classList.remove('bg-emerald-600', 'text-white', 'shadow-sm');
+              b.classList.add('text-slate-600', 'hover:bg-slate-100');
+            }
+          } else {
+            b.className = isMatch
+              ? 'nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-emerald-600'
+              : 'nav-tab-btn flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600';
+          }
+        });
+
+        tabPanels.forEach(panel => {
+          if (panel.id === 'tab-' + target) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+
+        if (TAB_SEO_TITLES[target]) {
+          document.title = TAB_SEO_TITLES[target];
+        }
+
+        if (target === 'simulador' && revenueChartInstance) {
+          revenueChartInstance.resize();
+        }
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab');
+          activateTab(target);
+        });
+      });
+
+      // ==========================================
+      // DARK MODE, LGPD BANNER, ADSENSE & MODALS
+      // ==========================================
+      document.getElementById('toggleDarkModeBtn').addEventListener('click', () => {
+        const htmlEl = document.documentElement;
+        const isDark = htmlEl.classList.toggle('dark');
+        document.getElementById('darkModeIcon').textContent = isDark ? '☀️' : '🌙';
+        document.getElementById('darkModeLabel').textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
+      });
+
+      document.getElementById('acceptLgpdCookiesBtn').addEventListener('click', () => {
+        document.getElementById('lgpdCookieBanner').classList.add('hidden');
+        try {
+          localStorage.setItem('mei_master_lgpd_ok', '1');
+        } catch (e) {}
+      });
+
+      const legalModal = document.getElementById('legalModal');
+      const legalTitle = document.getElementById('legalModalTitle');
+      const legalBody = document.getElementById('legalModalBody');
+
+      const LEGAL_TEXTS = {
+        privacidade: {
+          title: 'Política de Privacidade, Cookies e Conformidade LGPD',
+          html: '<p>O <strong>MEI Master.br</strong> respeita a sua privacidade e atua em estrita conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).</p><p><strong>1. Processamento 100% Local:</strong> Todos os cálculos de faturamento, chaves PIX, logomarcas, nomes de clientes e recibos são processados exclusivamente no navegador do seu dispositivo. Não armazenamos seus dados financeiros em bancos de dados externos.</p><p><strong>2. Cookies e Google AdSense:</strong> Utilizamos cookies de terceiros (incluindo o cookie DoubleClick DART do Google AdSense) para exibir anúncios relevantes com base em suas visitas anteriores a este e a outros sites na internet.</p>'
+        },
+        termos: {
+          title: 'Termos de Uso e Isenção de Responsabilidade Contábil',
+          html: '<p>As ferramentas disponibilizadas no <strong>MEI Master.br</strong> possuem caráter informativo, educativo e de auxílio à gestão cotidiana do Microempreendedor Individual.</p><p>Os cálculos seguem as regras públicas da Lei Complementar nº 123/2006 e resoluções do CGSN, mas não substituem a consultoria formal de um contador registrado no CRC nos casos de desenquadramento empresarial.</p>'
+        },
+        sobre: {
+          title: 'Sobre a Plataforma MEI Master Brasil',
+          html: '<p>Desenvolvido para facilitar a rotina dos mais de 15 milhões de microempreendedores individuais e autônomos brasileiros, reunindo em uma única tela gratuita simulador de teto anual, gerador de recibos em PDF com logo, QR Code PIX oficial, consulta de CNAE, gerador de contratos e precificação de horas técnicas.</p>'
+        }
+      };
+
+      document.querySelectorAll('.legal-modal-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-legal');
+          const info = LEGAL_TEXTS[key] || LEGAL_TEXTS.privacidade;
+          legalTitle.textContent = info.title;
+          legalBody.innerHTML = info.html;
+          legalModal.classList.remove('hidden');
+        });
+      });
+      document.getElementById('closeLegalModalBtn').addEventListener('click', () => {
+        legalModal.classList.add('hidden');
+      });
+
+      // ==========================================
+      // MODULE 1: SIMULADOR MEI, DAS & LATE FINE
+      // ==========================================
+      function renderMonthlyInputs() {
+        const container = document.getElementById('monthlyInputsContainer');
+        container.innerHTML = '';
+        MONTHS_PT.forEach((mName, idx) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'bg-slate-50 border border-slate-200 rounded-xl p-2.5';
+          wrapper.innerHTML = `
+            <label class="block text-[11px] font-bold text-slate-500 mb-1">${idx + 1}. ${mName.slice(0, 3)}</label>
+            <input type="number" step="100" min="0" data-month-idx="${idx}" value="${monthlyRevenues[idx]}"
+              class="month-rev-input w-full rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-bold text-slate-900 focus:border-emerald-600 focus:outline-none" />
+          `;
+          container.appendChild(wrapper);
+        });
+
+        container.querySelectorAll('.month-rev-input').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const i = Number(e.target.getAttribute('data-month-idx'));
+            monthlyRevenues[i] = Math.max(0, Number(e.target.value) || 0);
+            saveAndRecalculateMei();
+          });
+        });
+      }
+
+      function saveAndRecalculateMei() {
+        try {
+          localStorage.setItem('mei_master_revenues_v2', JSON.stringify(monthlyRevenues));
+        } catch (e) {}
+        recalculateMeiDashboard();
+      }
+
+      function calculateLateDasFine() {
+        const days = Math.max(1, Number(document.getElementById('lateDasDaysInput').value) || 1);
+        const count = Math.max(1, Number(document.getElementById('lateDasMonthsInput').value) || 1);
+        const basePrincipal = currentMonthlyDasGlobal * count;
+
+        // Multa de mora Receita Federal: 0,33% por dia de atraso, limitada a 20%
+        const fineRatePct = Math.min(20, days * 0.33);
+        const fineAmount = basePrincipal * (fineRatePct / 100);
+
+        // Juros SELIC aproximados (1% no mês de pagamento + proporcional)
+        const interestRatePct = Math.max(1, (days / 30) * 0.95);
+        const interestAmount = basePrincipal * (interestRatePct / 100);
+
+        const totalLate = basePrincipal + fineAmount + interestAmount;
+
+        document.getElementById('lateDasTotalOutput').textContent = formatBRL(totalLate);
+        document.getElementById('lateDasDetailOutput').textContent =
+          `Multa (${fineRatePct.toFixed(2).replace('.', ',')}%): ${formatBRL(fineAmount)} + Juros SELIC: ${formatBRL(interestAmount)}`;
+      }
+
+      function recalculateMeiDashboard() {
+        const activity = document.getElementById('meiActivitySelect').value;
+        const minWage = Math.max(1000, Number(document.getElementById('minimumWageInput').value) || 1621);
+        const activeMonths = Number(document.getElementById('activeMonthsSelect').value) || 12;
+
+        const inssRate = activity === 'caminhoneiro' ? 0.12 : 0.05;
+        const inssValue = minWage * inssRate;
+        let icms = 0;
+        let iss = 0;
+        if (activity === 'comercio') icms = 1;
+        if (activity === 'servicos') iss = 5;
+        if (activity === 'ambos' || activity === 'caminhoneiro') {
+          icms = 1;
+          iss = 5;
+        }
+        const monthlyDas = inssValue + icms + iss;
+        currentMonthlyDasGlobal = monthlyDas;
+        const annualDas = monthlyDas * activeMonths;
+
+        const baseAnnualMax = activity === 'caminhoneiro' ? 251600 : 81000;
+        const proportionalMax = (baseAnnualMax / 12) * activeMonths;
+        const tolerance20Max = proportionalMax * 1.2;
+        const safeMonthlyAvg = proportionalMax / activeMonths;
+
+        const totalRevenue = monthlyRevenues.reduce((acc, v) => acc + (Number(v) || 0), 0);
+        const pctUsed = proportionalMax > 0 ? (totalRevenue / proportionalMax) * 100 : 0;
+        const remaining = Math.max(0, proportionalMax - totalRevenue);
+        const effectiveTaxPct = totalRevenue > 0 ? (annualDas / totalRevenue) * 100 : 0;
+
+        document.getElementById('heroTotalRevenue').textContent = formatBRL(totalRevenue);
+        document.getElementById('heroLimitUsedText').textContent = `${pctUsed.toFixed(1).replace('.', ',')}% do limite utilizado`;
+        document.getElementById('heroRemainingText').textContent =
+          totalRevenue <= proportionalMax
+            ? `Restam ${formatBRL(remaining)}`
+            : `Excedido em ${formatBRL(totalRevenue - proportionalMax)}`;
+
+        const bar = document.getElementById('heroProgressBar');
+        bar.style.width = `${Math.min(100, pctUsed)}%`;
+
+        document.getElementById('cardDasValue').textContent = formatBRL(monthlyDas);
+        document.getElementById('cardDasBreakdown').textContent =
+          `INSS ${formatBRL(inssValue)} + ICMS R$ ${icms},00 + ISS R$ ${iss},00`;
+        document.getElementById('cardMaxLimit').textContent = formatBRL(proportionalMax);
+        document.getElementById('cardMonthlySafeAvg').textContent =
+          `Média segura: ${formatBRL(safeMonthlyAvg)}/mês (${activeMonths}m)`;
+        document.getElementById('cardAnnualTax').textContent = formatBRL(annualDas);
+        document.getElementById('cardEffectiveTaxRate').textContent =
+          `Carga tributária efetiva: ${effectiveTaxPct.toFixed(2).replace('.', ',')}%`;
+
+        const diagCard = document.getElementById('meiDiagnosticCard');
+        const diagIcon = document.getElementById('meiDiagnosticIcon');
+        const diagTitle = document.getElementById('meiDiagnosticTitle');
+        const diagDesc = document.getElementById('meiDiagnosticDescription');
+        const heroBadge = document.getElementById('heroStatusBadge');
+
+        if (totalRevenue <= proportionalMax * 0.85) {
+          diagCard.className = 'rounded-2xl border p-5 transition-all bg-emerald-50 border-emerald-200 text-emerald-950';
+          diagIcon.className = 'w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shrink-0';
+          diagIcon.textContent = '✓';
+          heroBadge.textContent = 'REGULAR • SEGURO';
+          heroBadge.className = 'px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-200 font-bold';
+          bar.className = 'bg-emerald-400 h-full rounded-full transition-all duration-300';
+          diagTitle.textContent = 'Situação Segura: Seu CNPJ está perfeitamente dentro do limite do MEI!';
+          diagDesc.innerHTML = `Você ainda pode faturar <strong>${formatBRL(remaining)}</strong> neste ano sem risco de desenquadramento. Sua carga de imposto anual é de apenas <strong>${effectiveTaxPct.toFixed(2).replace('.', ',')}%</strong>.`;
+        } else if (totalRevenue <= proportionalMax) {
+          diagCard.className = 'rounded-2xl border p-5 transition-all bg-amber-50 border-amber-300 text-amber-950';
+          diagIcon.className = 'w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center font-bold text-lg shrink-0';
+          diagIcon.textContent = '!';
+          heroBadge.textContent = 'ATENÇÃO • PRÓXIMO AO TETO';
+          heroBadge.className = 'px-2 py-0.5 rounded-full bg-amber-400/30 text-amber-200 font-bold';
+          bar.className = 'bg-amber-400 h-full rounded-full transition-all duration-300';
+          diagTitle.textContent = 'Alerta de Proximidade: Você já utilizou mais de 85% do limite anual!';
+          diagDesc.innerHTML = `Restam apenas <strong>${formatBRL(remaining)}</strong> de margem até dezembro. Controle a emissão de notas nos próximos meses para evitar migração obrigatória para Microempresa (ME).`;
+        } else if (totalRevenue <= tolerance20Max) {
+          const excess = totalRevenue - proportionalMax;
+          const estimatedExtraDas = excess * 0.045;
+          diagCard.className = 'rounded-2xl border p-5 transition-all bg-orange-50 border-orange-300 text-orange-950';
+          diagIcon.className = 'w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-bold text-lg shrink-0';
+          diagIcon.textContent = '⚠️';
+          heroBadge.textContent = 'EXCEDENTE ATÉ 20%';
+          heroBadge.className = 'px-2 py-0.5 rounded-full bg-orange-500/30 text-orange-200 font-bold';
+          bar.className = 'bg-orange-500 h-full rounded-full transition-all duration-300';
+          diagTitle.textContent = 'Limite Ultrapassado na Faixa de Tolerância (Até 20%):';
+          diagDesc.innerHTML = `Você ultrapassou o teto em <strong>${formatBRL(excess)}</strong>. Pela regra da Receita Federal, você pagará uma guia complementar sobre o excedente (estimada em ~<strong>${formatBRL(estimatedExtraDas)}</strong>) em janeiro e passará a ser Microempresa (Simples Nacional) a partir de 1º de janeiro do próximo ano.`;
+        } else {
+          const excess = totalRevenue - proportionalMax;
+          diagCard.className = 'rounded-2xl border p-5 transition-all bg-red-50 border-red-300 text-red-950';
+          diagIcon.className = 'w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-lg shrink-0';
+          diagIcon.textContent = '🚨';
+          heroBadge.textContent = 'DESENQUADRAMENTO RETROATIVO';
+          heroBadge.className = 'px-2 py-0.5 rounded-full bg-red-500/30 text-red-200 font-bold';
+          bar.className = 'bg-red-500 h-full rounded-full transition-all duration-300';
+          diagTitle.textContent = 'Alerta Crítico: Faturamento Acima de 20% do Limite Permitido!';
+          diagDesc.innerHTML = `O valor excedeu o teto em <strong>${formatBRL(excess)}</strong> (acima do limite de tolerância de ${formatBRL(tolerance20Max)}). A legislação exige o desenquadramento imediato com recolhimento retroativo dos impostos do Simples Nacional desde janeiro. Procure um contador imediatamente.`;
+        }
+
+        calculateLateDasFine();
+        updateRevenueChart(safeMonthlyAvg);
+      }
+
+      function updateRevenueChart(safeMonthlyAvg) {
+        const ctx = document.getElementById('meiRevenueChart');
+        if (!ctx || typeof Chart === 'undefined') return;
+
+        const safeLine = new Array(12).fill(Math.round(safeMonthlyAvg));
+
+        if (!revenueChartInstance) {
+          revenueChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: MONTHS_PT.map(m => m.slice(0, 3)),
+              datasets: [
+                {
+                  type: 'bar',
+                  label: 'Faturamento Mensal (R$)',
+                  data: monthlyRevenues,
+                  backgroundColor: '#10b981',
+                  borderRadius: 6
+                },
+                {
+                  type: 'line',
+                  label: 'Média Mensal Segura (Teto)',
+                  data: safeLine,
+                  borderColor: '#f59e0b',
+                  borderWidth: 2,
+                  borderDash: [6, 4],
+                  pointRadius: 0,
+                  fill: false
+                }
+              ]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'top'
+                }
+              },
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        } else {
+          revenueChartInstance.data.datasets[0].data = [...monthlyRevenues];
+          revenueChartInstance.data.datasets[1].data = safeLine;
+          revenueChartInstance.update();
+        }
+      }
+
+      document.getElementById('meiActivitySelect').addEventListener('change', saveAndRecalculateMei);
+      document.getElementById('minimumWageInput').addEventListener('input', saveAndRecalculateMei);
+      document.getElementById('activeMonthsSelect').addEventListener('change', saveAndRecalculateMei);
+      document.getElementById('lateDasDaysInput').addEventListener('input', calculateLateDasFine);
+      document.getElementById('lateDasMonthsInput').addEventListener('input', calculateLateDasFine);
+
+      document.getElementById('applyQuickAverageBtn').addEventListener('click', () => {
+        const avg = Math.max(0, Number(document.getElementById('quickMonthlyAvgInput').value) || 0);
+        monthlyRevenues = new Array(12).fill(avg);
+        renderMonthlyInputs();
+        saveAndRecalculateMei();
+        showToast('Média mensal aplicada aos 12 meses!');
+      });
+
+      document.getElementById('resetSimulatorBtn').addEventListener('click', () => {
+        monthlyRevenues = [...DEFAULT_MONTHLY_REVENUE];
+        document.getElementById('meiActivitySelect').value = 'ambos';
+        document.getElementById('minimumWageInput').value = 1621;
+        document.getElementById('activeMonthsSelect').value = '12';
+        renderMonthlyInputs();
+        saveAndRecalculateMei();
+        showToast('Dados de exemplo restaurados!');
+      });
+
+      function buildOfficialDasnReportText() {
+        const total = monthlyRevenues.reduce((a, b) => a + b, 0);
+        const lines = MONTHS_PT.map((m, i) => `${String(i + 1).padStart(2, '0')}. ${m.padEnd(12, ' ')}: ${formatBRL(monthlyRevenues[i])}`).join('\n');
+        return `====================================================\nRELATÓRIO ANUAL DE RECEITAS BRUTAS MEI (DASN-SIMEI)\nConforme Art. 106 da Resolução CGSN nº 140/2018\n====================================================\n\nFATURAMENTO MENSAL CONSOLIDADO:\n${lines}\n\n----------------------------------------------------\nRECEITA BRUTA TOTAL DO ANO: ${formatBRL(total)}\nGUIA DAS MENSAL BASE 2026:  ${formatBRL(currentMonthlyDasGlobal)}\n----------------------------------------------------\nGerado gratuitamente em MEI Master.br`;
+      }
+
+      document.getElementById('copyDasnReportBtn').addEventListener('click', () => {
+        copyTextToClipboard(buildOfficialDasnReportText(), 'Relatório anual copiado para a área de transferência!');
+      });
+
+      const officialDasnModal = document.getElementById('officialDasnModal');
+      document.getElementById('openOfficialDasnModalBtn').addEventListener('click', () => {
+        document.getElementById('officialDasnModalContent').textContent = buildOfficialDasnReportText();
+        officialDasnModal.classList.remove('hidden');
+      });
+      document.getElementById('closeOfficialDasnModalBtn').addEventListener('click', () => {
+        officialDasnModal.classList.add('hidden');
+      });
+      document.getElementById('copyOfficialDasnModalBtn').addEventListener('click', () => {
+        copyTextToClipboard(buildOfficialDasnReportText(), 'Relatório oficial copiado!');
+      });
+
+      // CSV Export
+      document.getElementById('exportCsvBtn').addEventListener('click', () => {
+        const rows = [['Mes', 'Faturamento_Bruto_BRL', 'Guia_DAS_Estimada_BRL']];
+        MONTHS_PT.forEach((m, idx) => {
+          rows.push([m, monthlyRevenues[idx].toFixed(2), currentMonthlyDasGlobal.toFixed(2)]);
+        });
+        const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(r => r.join(';')).join('\n');
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', 'controle_faturamento_mei_2026.csv');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        showToast('Planilha CSV baixada com sucesso!');
+      });
+
+      // ==========================================
+      // MODULE 2: GERADOR DE ORÇAMENTO & RECIBO PDF + LOGO + SAVED CLIENTS
+      // ==========================================
+      function renderSavedClientsDropdown() {
+        const sel = document.getElementById('savedClientsSelect');
+        sel.innerHTML = '<option value="">-- Selecionar Cliente Salvo --</option>';
+        savedClients.forEach((c, idx) => {
+          const opt = document.createElement('option');
+          opt.value = String(idx);
+          opt.textContent = `${c.name} (${c.doc})`;
+          sel.appendChild(opt);
+        });
+      }
+
+      document.getElementById('savedClientsSelect').addEventListener('change', (e) => {
+        const idx = e.target.value;
+        if (idx === '') return;
+        const chosen = savedClients[Number(idx)];
+        if (chosen) {
+          document.getElementById('docClientName').value = chosen.name;
+          document.getElementById('docClientDoc').value = chosen.doc;
+          updateQuotePreviewOnly();
+          showToast('Dados do cliente preenchidos!');
+        }
+      });
+
+      document.getElementById('saveCurrentClientBtn').addEventListener('click', () => {
+        const name = (document.getElementById('docClientName').value || '').trim();
+        const doc = (document.getElementById('docClientDoc').value || '').trim();
+        if (!name) {
+          showToast('Digite o nome do cliente antes de salvar.');
+          return;
+        }
+        savedClients.push({ name, doc });
+        try {
+          localStorage.setItem('mei_master_clients_v2', JSON.stringify(savedClients));
+        } catch (e) {}
+        renderSavedClientsDropdown();
+        showToast('Cliente salvo na sua carteira!');
+      });
+
+      // Logo Upload Handler
+      document.getElementById('docLogoUploadInput').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (evt) {
+          const img = document.getElementById('previewCompanyLogoImg');
+          img.src = evt.target.result;
+          img.classList.remove('hidden');
+          showToast('Logomarca adicionada ao documento!');
+        };
+        reader.readAsDataURL(file);
+      });
+
+      document.getElementById('clearLogoBtn').addEventListener('click', () => {
+        const img = document.getElementById('previewCompanyLogoImg');
+        img.src = '';
+        img.classList.add('hidden');
+        document.getElementById('docLogoUploadInput').value = '';
+      });
+
+      function renderQuoteEditorAndPreview() {
+        const list = document.getElementById('quoteItemsEditorList');
+        list.innerHTML = '';
+
+        quoteItems.forEach((item) => {
+          const row = document.createElement('div');
+          row.className = 'grid grid-cols-12 gap-2 items-center bg-slate-50 p-2 rounded-xl border border-slate-200';
+          row.innerHTML = `
+            <div class="col-span-6">
+              <input type="text" data-id="${item.id}" data-field="desc" value="${item.desc}" placeholder="Descrição do serviço"
+                class="quote-item-input w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-xs font-medium" />
+            </div>
+            <div class="col-span-2">
+              <input type="number" min="1" data-id="${item.id}" data-field="qty" value="${item.qty}"
+                class="quote-item-input w-full rounded-lg border border-slate-300 px-2 py-1.5 text-xs text-center font-semibold" />
+            </div>
+            <div class="col-span-3">
+              <input type="number" min="0" step="10" data-id="${item.id}" data-field="price" value="${item.price}"
+                class="quote-item-input w-full rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-semibold" />
+            </div>
+            <div class="col-span-1 text-right">
+              <button type="button" data-remove-id="${item.id}" class="remove-quote-item-btn text-red-500 hover:text-red-700 font-bold text-sm px-1" title="Remover">✕</button>
+            </div>
+          `;
+          list.appendChild(row);
+        });
+
+        list.querySelectorAll('.quote-item-input').forEach(inp => {
+          inp.addEventListener('input', (e) => {
+            const id = Number(e.target.getAttribute('data-id'));
+            const field = e.target.getAttribute('data-field');
+            const targetItem = quoteItems.find(it => it.id === id);
+            if (!targetItem) return;
+            if (field === 'desc') {
+              targetItem.desc = e.target.value;
+            } else {
+              targetItem[field] = Math.max(0, Number(e.target.value) || 0);
+            }
+            updateQuotePreviewOnly();
+          });
+        });
+
+        list.querySelectorAll('.remove-quote-item-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            if (quoteItems.length <= 1) {
+              showToast('O documento precisa ter pelo menos 1 item.');
+              return;
+            }
+            const id = Number(btn.getAttribute('data-remove-id'));
+            quoteItems = quoteItems.filter(it => it.id !== id);
+            renderQuoteEditorAndPreview();
+          });
+        });
+
+        updateQuotePreviewOnly();
+      }
+
+      function updateQuotePreviewOnly() {
+        const providerName = document.getElementById('docProviderName').value || 'Empresa MEI';
+        const providerCnpj = document.getElementById('docProviderCnpj').value || '';
+        const providerPhone = document.getElementById('docProviderPhone').value || '';
+        const pixKey = document.getElementById('docPixKey').value || '';
+        const clientName = document.getElementById('docClientName').value || 'Cliente';
+        const clientDoc = document.getElementById('docClientDoc').value || 'Não informado';
+        const validity = document.getElementById('docValidityDays').value || '';
+        const discount = Math.max(0, Number(document.getElementById('docDiscountInput').value) || 0);
+        const notes = document.getElementById('docNotesInput').value || '';
+
+        document.getElementById('previewDocTypeBadge').textContent = currentDocType;
+        document.getElementById('previewProviderName').textContent = providerName;
+        document.getElementById('previewProviderMeta').textContent = `CNPJ/CPF: ${providerCnpj} • WhatsApp: ${providerPhone}`;
+        document.getElementById('previewClientName').textContent = clientName;
+        document.getElementById('previewClientDoc').textContent = `CPF/CNPJ: ${clientDoc}`;
+        document.getElementById('previewValidity').textContent = validity;
+        document.getElementById('previewPixKey').textContent = `Chave PIX: ${pixKey}`;
+        document.getElementById('previewNotes').textContent = notes;
+        document.getElementById('previewDocDate').textContent = `Data: ${new Date().toLocaleDateString('pt-BR')}`;
+
+        const tbody = document.getElementById('previewItemsTableBody');
+        tbody.innerHTML = '';
+        let subtotal = 0;
+
+        quoteItems.forEach(item => {
+          const lineTotal = (Number(item.qty) || 0) * (Number(item.price) || 0);
+          subtotal += lineTotal;
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="py-2.5 pr-2 font-medium text-slate-800">${item.desc || 'Serviço'}</td>
+            <td class="py-2.5 px-2 text-center text-slate-600">${item.qty}</td>
+            <td class="py-2.5 px-2 text-right text-slate-600">${formatBRL(item.price)}</td>
+            <td class="py-2.5 pl-2 text-right font-bold text-slate-900">${formatBRL(lineTotal)}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        const finalTotal = Math.max(0, subtotal - discount);
+        document.getElementById('previewSubtotal').textContent = formatBRL(subtotal);
+        document.getElementById('previewDiscount').textContent = `- ${formatBRL(discount)}`;
+        document.getElementById('previewFinalTotal').textContent = formatBRL(finalTotal);
+      }
+
+      document.querySelectorAll('.doc-type-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentDocType = btn.getAttribute('data-doctype');
+          document.querySelectorAll('.doc-type-btn').forEach(b => {
+            b.className = 'doc-type-btn px-3 py-1 rounded-md text-xs font-bold text-slate-600';
+          });
+          btn.className = 'doc-type-btn px-3 py-1 rounded-md text-xs font-bold bg-white text-slate-900 shadow-sm';
+          updateQuotePreviewOnly();
+        });
+      });
+
+      ['docProviderName', 'docProviderCnpj', 'docProviderPhone', 'docPixKey', 'docClientName', 'docClientDoc', 'docValidityDays', 'docDiscountInput', 'docNotesInput'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateQuotePreviewOnly);
+      });
+
+      document.getElementById('addQuoteItemBtn').addEventListener('click', () => {
+        quoteItems.push({
+          id: Date.now(),
+          desc: 'Novo Serviço ou Produto',
+          qty: 1,
+          price: 250
+        });
+        renderQuoteEditorAndPreview();
+      });
+
+      document.getElementById('printDocumentBtn').addEventListener('click', () => {
+        window.print();
+      });
+
+      // 1-Click Direct PDF Download via html2pdf.js
+      document.getElementById('downloadDirectPdfBtn').addEventListener('click', () => {
+        const element = document.getElementById('printableDocumentArea');
+        if (typeof html2pdf !== 'undefined') {
+          showToast('Gerando arquivo PDF... aguarde um instante.');
+          html2pdf()
+            .set({
+              margin: 8,
+              filename: `${currentDocType.toLowerCase().replace(/\s+/g, '_')}_mei.pdf`,
+              image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2, useCORS: true },
+              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            })
+            .from(element)
+            .save();
+        } else {
+          window.print();
+        }
+      });
+
+      document.getElementById('sendQuoteWhatsappBtn').addEventListener('click', () => {
+        const provider = document.getElementById('docProviderName').value;
+        const client = document.getElementById('docClientName').value;
+        const pix = document.getElementById('docPixKey').value;
+        const discount = Number(document.getElementById('docDiscountInput').value) || 0;
+        let subtotal = 0;
+        const itemLines = quoteItems.map(i => {
+          const sub = i.qty * i.price;
+          subtotal += sub;
+          return `• ${i.qty}x ${i.desc}: *${formatBRL(sub)}*`;
+        }).join('\n');
+        const total = Math.max(0, subtotal - discount);
+
+        const text = `📄 *${currentDocType}*\n*Prestador:* ${provider}\n*Cliente:* ${client}\n\n*Itens:*\n${itemLines}\n\n💰 *Valor Total Final:* ${formatBRL(total)}\n⚡ *Chave PIX:* ${pix}\n\n_${document.getElementById('docValidityDays').value}_`;
+        copyTextToClipboard(text, 'Orçamento formatado para WhatsApp copiado!');
+      });
+
+      // ==========================================
+      // MODULE 3: GERADOR PIX BR CODE + PNG DOWNLOAD
+      // ==========================================
+      function emvField(id, value) {
+        const str = String(value || '');
+        const len = String(str.length).padStart(2, '0');
+        return `${id}${len}${str}`;
+      }
+
+      function computeCRC16(payload) {
+        let crc = 0xFFFF;
+        for (let i = 0; i < payload.length; i++) {
+          crc ^= payload.charCodeAt(i) << 8;
+          for (let j = 0; j < 8; j++) {
+            if ((crc & 0x8000) !== 0) {
+              crc = ((crc << 1) ^ 0x1021) & 0xFFFF;
+            } else {
+              crc = (crc << 1) & 0xFFFF;
+            }
+          }
+        }
+        return crc.toString(16).toUpperCase().padStart(4, '0');
+      }
+
+      function buildBrCodePix() {
+        const rawKey = (document.getElementById('pixKeyValue').value || '').trim();
+        const rawName = (document.getElementById('pixMerchantName').value || 'EMPREENDEDOR MEI')
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().slice(0, 25);
+        const rawCity = (document.getElementById('pixMerchantCity').value || 'SAO PAULO')
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().slice(0, 15);
+        const amountNum = Math.max(0, Number(document.getElementById('pixAmount').value) || 0);
+        const txId = (document.getElementById('pixTxId').value || 'MEIMASTER')
+          .replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 20) || '***';
+
+        const gui = emvField('00', 'br.gov.bcb.pix');
+        const keyField = emvField('01', rawKey);
+        const merchantAccount = emvField('26', gui + keyField);
+
+        let payload =
+          emvField('00', '01') +
+          merchantAccount +
+          emvField('52', '0000') +
+          emvField('53', '986');
+
+        if (amountNum > 0) {
+          payload += emvField('54', amountNum.toFixed(2));
+        }
+
+        payload +=
+          emvField('58', 'BR') +
+          emvField('59', rawName) +
+          emvField('60', rawCity) +
+          emvField('62', emvField('05', txId)) +
+          '6304';
+
+        const crc = computeCRC16(payload);
+        const fullCode = payload + crc;
+
+        document.getElementById('pixPayloadOutput').value = fullCode;
+        document.getElementById('pixPreviewTitle').textContent =
+          `Pagamento de ${formatBRL(amountNum)} para ${rawName}`;
+
+        const qrContainer = document.getElementById('pixQrCodeContainer');
+        qrContainer.innerHTML = '';
+        if (typeof QRCode !== 'undefined') {
+          new QRCode(qrContainer, {
+            text: fullCode,
+            width: 176,
+            height: 176,
+            colorDark: '#064e3b',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        }
+      }
+
+      document.getElementById('generatePixBtn').addEventListener('click', () => {
+        buildBrCodePix();
+        showToast('QR Code PIX atualizado com sucesso!');
+      });
+
+      ['pixKeyType', 'pixKeyValue', 'pixMerchantName', 'pixMerchantCity', 'pixAmount', 'pixTxId'].forEach(id => {
+        document.getElementById(id).addEventListener('input', buildBrCodePix);
+      });
+
+      document.getElementById('copyPixCodeBtn').addEventListener('click', () => {
+        const code = document.getElementById('pixPayloadOutput').value;
+        copyTextToClipboard(code, 'Código PIX Copia e Cola copiado!');
+      });
+
+      document.getElementById('copyPixWhatsappBtn').addEventListener('click', () => {
+        const name = document.getElementById('pixMerchantName').value;
+        const amt = formatBRL(document.getElementById('pixAmount').value);
+        const code = document.getElementById('pixPayloadOutput').value;
+        const msg = `⚡ *Cobrança via PIX — ${name}*\n💰 *Valor:* ${amt}\n\nCopie o código abaixo e cole na opção *PIX Copia e Cola* do seu aplicativo bancário:\n\n${code}`;
+        copyTextToClipboard(msg, 'Mensagem de cobrança PIX copiada para o WhatsApp!');
+      });
+
+      document.getElementById('downloadPixQrPngBtn').addEventListener('click', () => {
+        const qrContainer = document.getElementById('pixQrCodeContainer');
+        const img = qrContainer.querySelector('img');
+        const canvas = qrContainer.querySelector('canvas');
+        const dataUrl = (canvas && canvas.toDataURL('image/png')) || (img && img.src);
+        if (dataUrl) {
+          const a = document.createElement('a');
+          a.href = dataUrl;
+          a.download = 'qrcode_pix_mei.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          showToast('Imagem do QR Code PIX baixada!');
+        } else {
+          showToast('Gere o QR Code primeiro.');
+        }
+      });
+
+      // ==========================================
+      // MODULE 4: BUSCADOR CNAE 2026 & NOTA FISCAL
+      // ==========================================
+      function renderCnaeTable() {
+        const query = (document.getElementById('cnaeSearchInput').value || '').toLowerCase().trim();
+        const cat = document.getElementById('cnaeCategoryFilter').value;
+        const tbody = document.getElementById('cnaeTableBody');
+        tbody.innerHTML = '';
+
+        const filtered = CNAE_DATABASE.filter(item => {
+          const matchesCat = cat === 'todos' || item.sector === cat;
+          const matchesQuery = !query ||
+            item.code.toLowerCase().includes(query) ||
+            item.title.toLowerCase().includes(query) ||
+            item.nf.toLowerCase().includes(query);
+          return matchesCat && matchesQuery;
+        });
+
+        if (filtered.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-slate-500">Nenhuma ocupação encontrada para esta busca. Tente termos como "Eletricista", "Comércio" ou "Serviços".</td></tr>`;
+          return;
+        }
+
+        filtered.forEach(item => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-emerald-50/50 transition';
+          tr.innerHTML = `
+            <td class="py-3 px-4 font-mono font-bold text-emerald-700 whitespace-nowrap">${item.code}</td>
+            <td class="py-3 px-4 font-semibold text-slate-900">${item.title}</td>
+            <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-xs">${item.sector} (${item.tax})</span></td>
+            <td class="py-3 px-4 font-extrabold text-slate-900 whitespace-nowrap">${item.das}</td>
+            <td class="py-3 px-4 text-xs text-slate-600">${item.nf}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      document.getElementById('cnaeSearchInput').addEventListener('input', renderCnaeTable);
+      document.getElementById('cnaeCategoryFilter').addEventListener('change', renderCnaeTable);
+
+      // ==========================================
+      // MODULE 5: GERADOR DE CONTRATO DE SERVIÇOS MEI
+      // ==========================================
+      function updateContractPreview() {
+        const contractor = document.getElementById('ctContractorName').value || 'CONTRATANTE';
+        const contractorDoc = document.getElementById('ctContractorDoc').value || '000.000.000-00';
+        const provider = document.getElementById('ctProviderName').value || 'CONTRATADA MEI';
+        const providerCnpj = document.getElementById('ctProviderCnpj').value || '00.000.000/0001-00';
+        const obj = document.getElementById('ctServiceObject').value || 'Prestação de serviços profissionais.';
+        const val = formatBRL(document.getElementById('ctTotalValue').value || 0);
+        const deadline = document.getElementById('ctDeadlineDays').value || '15 dias';
+        const forum = document.getElementById('ctCityForum').value || 'São Paulo / SP';
+        const todayStr = new Date().toLocaleDateString('pt-BR');
+
+        const html = `
+          <p><strong>1. DAS PARTES CONTRATANTES:</strong></p>
+          <p><strong>CONTRATANTE:</strong> ${contractor}, inscrito(a) no CPF/CNPJ sob o nº <strong>${contractorDoc}</strong>.</p>
+          <p><strong>CONTRATADA (PRESTADOR MEI):</strong> ${provider}, pessoa jurídica de direito privado inscrita no CNPJ sob o nº <strong>${providerCnpj}</strong>.</p>
+          <p><strong>2. DO OBJETO DO CONTRATO (CLÁUSULA PRIMEIRA):</strong></p>
+          <p>O presente contrato tem como objeto a prestação autônoma dos seguintes serviços especializados pela CONTRATADA ao CONTRATANTE: <em>"${obj}"</em>.</p>
+          <p><strong>3. DO VALOR E FORMA DE PAGAMENTO (CLÁUSULA SEGUNDA):</strong></p>
+          <p>Pelos serviços prestados, o CONTRATANTE pagará à CONTRATADA o valor total acordado de <strong>${val}</strong>. Em caso de atraso no pagamento, incidirá multa moratória de 2% (dois por cento) e juros de 1% ao mês.</p>
+          <p><strong>4. DO PRAZO E INEXISTÊNCIA DE VÍNCULO TRABALHISTA (CLÁUSULA TERCEIRA):</strong></p>
+          <p>O prazo estimado para conclusão dos serviços é de <strong>${deadline}</strong>. Nos termos do Art. 593 do Código Civil Brasileiro, a presente relação é estritamente empresarial e autônoma, não gerando vínculo empregatício (CLT) entre as partes.</p>
+          <p><strong>5. DO FORO (CLÁUSULA QUARTA):</strong></p>
+          <p>Fica eleito o foro da Comarca de <strong>${forum}</strong> para dirimir quaisquer dúvidas oriundas deste instrumento.</p>
+          <div class="pt-6 text-center text-xs text-slate-500">
+            Local e Data: ${forum}, ${todayStr}.
+          </div>
+          <div class="pt-6 grid grid-cols-2 gap-6 text-center text-xs text-slate-500">
+            <div class="border-t border-slate-400 pt-2"><strong>${provider}</strong><br/>CNPJ: ${providerCnpj}</div>
+            <div class="border-t border-slate-400 pt-2"><strong>${contractor}</strong><br/>CPF/CNPJ: ${contractorDoc}</div>
+          </div>
+        `;
+        document.getElementById('contractLiveBody').innerHTML = html;
+      }
+
+      ['ctContractorName', 'ctContractorDoc', 'ctProviderName', 'ctProviderCnpj', 'ctServiceObject', 'ctTotalValue', 'ctDeadlineDays', 'ctCityForum'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateContractPreview);
+      });
+
+      document.getElementById('copyContractBtn').addEventListener('click', () => {
+        const text = document.getElementById('printableContractArea').innerText;
+        copyTextToClipboard(text, 'Contrato jurídico copiado com sucesso!');
+      });
+
+      document.getElementById('downloadContractPdfBtn').addEventListener('click', () => {
+        const element = document.getElementById('printableContractArea');
+        if (typeof html2pdf !== 'undefined') {
+          showToast('Gerando PDF do contrato...');
+          html2pdf()
+            .set({
+              margin: 10,
+              filename: 'contrato_prestacao_servicos_mei.pdf',
+              image: { type: 'jpeg', quality: 0.98 },
+              html2canvas: { scale: 2 },
+              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            })
+            .from(element)
+            .save();
+        } else {
+          window.print();
+        }
+      });
+
+      // ==========================================
+      // MODULE 6: CALCULADORA DE PREÇO HORA & PROJETO
+      // ==========================================
+      function calculateFreelanceRates() {
+        const salary = Math.max(0, Number(document.getElementById('rateDesiredSalary').value) || 0);
+        const costs = Math.max(0, Number(document.getElementById('rateFixedCosts').value) || 0);
+        const hoursDay = Math.max(1, Number(document.getElementById('rateHoursPerDay').value) || 6);
+        const daysWeek = Math.max(1, Number(document.getElementById('rateDaysPerWeek').value) || 5);
+        const marginPct = Math.max(0, Number(document.getElementById('rateProfitMargin').value) || 0);
+        const projectHours = Math.max(1, Number(document.getElementById('rateProjectHours').value) || 1);
+
+        const monthlyHours = hoursDay * daysWeek * 4;
+        const baseNeed = salary + costs;
+        const requiredGross = baseNeed * (1 + marginPct / 100);
+        const hourlyRate = monthlyHours > 0 ? requiredGross / monthlyHours : 0;
+        const dailyRate = hourlyRate * hoursDay;
+        const projectTotal = hourlyRate * projectHours;
+        const annualGross = requiredGross * 12;
+
+        document.getElementById('outHourlyRate').textContent = `${formatBRL(hourlyRate)} /h`;
+        document.getElementById('outMonthlyHours').textContent = `Baseado em ${monthlyHours} horas produtivas/mês`;
+        document.getElementById('outProjectTotal').textContent = formatBRL(projectTotal);
+        document.getElementById('outProjectSummary').textContent = `Para um projeto estimado em ${projectHours} horas`;
+        document.getElementById('outRequiredMonthlyGross').textContent = formatBRL(requiredGross);
+        document.getElementById('outDailyRate').textContent = `${formatBRL(dailyRate)} /dia`;
+
+        const fitEl = document.getElementById('outMeiFitStatus');
+        if (annualGross <= 81000) {
+          fitEl.textContent = `Compatível com MEI (${formatBRL(annualGross)}/ano)`;
+          fitEl.className = 'text-emerald-300 font-bold';
+        } else {
+          fitEl.textContent = `Acima do MEI — Porte ME (${formatBRL(annualGross)}/ano)`;
+          fitEl.className = 'text-amber-300 font-bold';
+        }
+      }
+
+      ['rateDesiredSalary', 'rateFixedCosts', 'rateHoursPerDay', 'rateDaysPerWeek', 'rateProfitMargin', 'rateProjectHours'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calculateFreelanceRates);
+      });
+
+      // ==========================================
+      // MODULE 7: ENCICLOPÉDIA MEI (LONG-FORM BLOG READER)
+      // ==========================================
+      function renderBlogCardsAndReader(selectedId) {
+        const grid = document.getElementById('blogCardsGrid');
+        grid.innerHTML = '';
+
+        const activeArticle = FULL_BLOG_ARTICLES.find(a => a.id === selectedId) || FULL_BLOG_ARTICLES[0];
+
+        FULL_BLOG_ARTICLES.forEach(art => {
+          const isSelected = art.id === activeArticle.id;
+          const card = document.createElement('article');
+          card.className = `rounded-2xl border p-5 shadow-sm flex flex-col justify-between space-y-4 transition cursor-pointer ${
+            isSelected ? 'bg-emerald-50/70 border-emerald-500 ring-2 ring-emerald-500/20' : 'bg-white border-slate-200 hover:border-emerald-300'
+          }`;
+          card.innerHTML = `
+            <div class="space-y-2.5">
+              <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">${art.category}</span>
+              <h3 class="font-extrabold text-base text-slate-900">${art.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${art.summary}</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400">${art.meta}</span>
+              <button type="button" data-article-id="${art.id}" class="read-article-btn text-xs font-extrabold text-emerald-700 hover:text-emerald-800">
+                ${isSelected ? '✓ Lendo Agora' : 'Ler Guia Completo →'}
+              </button>
+            </div>
+          `;
+          card.addEventListener('click', () => {
+            renderBlogCardsAndReader(art.id);
+          });
+          grid.appendChild(card);
+        });
+
+        document.getElementById('readerArticleCategory').textContent = activeArticle.category;
+        document.getElementById('readerArticleTitle').textContent = activeArticle.title;
+        document.getElementById('readerArticleMeta').textContent = activeArticle.meta;
+        document.getElementById('readerArticleContent').innerHTML = activeArticle.html;
+      }
+
+      // ==========================================
+      // INITIALIZE ALL 7 MODULES ON LOAD
+      // ==========================================
+      window.addEventListener('DOMContentLoaded', () => {
+        renderMonthlyInputs();
+        recalculateMeiDashboard();
+        renderSavedClientsDropdown();
+        renderQuoteEditorAndPreview();
+        buildBrCodePix();
+        renderCnaeTable();
+        updateContractPreview();
+        calculateFreelanceRates();
+        renderBlogCardsAndReader(FULL_BLOG_ARTICLES[0].id);
+        activateTab('recibos');
+      });
+    })();
+  </script>
+</body>
+</html>

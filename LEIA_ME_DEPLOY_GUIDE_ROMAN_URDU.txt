@@ -1,0 +1,44 @@
+===================================================================
+MEI MASTER BRASIL 2026 — PRODUCTION DEPLOYMENT PACKAGE (5.0 / 5)
+===================================================================
+
+Is ZIP folder mein aapki mukammal Multi-Page Production Website mojood hai.
+Ismein se "Owner Roman Urdu Bar" aur "Yellow Demo AdSense Boxes" hata diye gaye hain
+taake Brazilian visitors aur Google AdSense reviewers ko 100% clean, official
+fintech portal nazar aaye.
+
+-------------------------------------------------------------------
+IS FOLDER MEIN KONSI FILES HAIN? (10 FILES)
+-------------------------------------------------------------------
+1. index.html                              -> Main Homepage + Simulador MEI & DAS 2026
+2. gerador-recibo-orcamento-mei.html       -> Standalone SEO Page: PDF Quote & Receipt Maker
+3. gerador-qrcode-pix-mei.html             -> Standalone SEO Page: Official PIX QR Generator
+4. tabela-cnae-mei-2026-nfse.html          -> Standalone SEO Page: CNAE 2026 & NFS-e Lookup
+5. gerador-contrato-servico-mei.html       -> Standalone SEO Page: Legal Contract Generator
+6. calculadora-preco-hora-freelancer.html  -> Standalone SEO Page: Freelance Hourly Calculator
+7. guias-enciclopedia-mei-2026.html        -> Standalone SEO Page: 6 Full Portuguese Guides
+8. sitemap.xml                             -> Google Search Console Sitemap (7 SEO URLs)
+9. robots.txt                              -> Search Engine Crawler Rules
+10. ads.txt                                -> Google AdSense Publisher Verification File
+
+-------------------------------------------------------------------
+STEP-BY-STEP: GITHUB + CLOUDFLARE PAGES PAR FREE LIVE KAISE KAREIN?
+-------------------------------------------------------------------
+STEP 1:
+Is ZIP file (mei_master_brasil_production.zip) ko apne computer par Extract (Unzip) karein.
+
+STEP 2:
+1. https://github.com par free account banayein aur '+' button se "New repository" banayein.
+2. Repository ka naam rakhein: mei-master-brasil
+3. "uploading an existing file" par click karein aur is folder ke andar wali saari 10 files
+   drag-and-drop kar ke "Commit changes" daba dein.
+
+STEP 3:
+1. https://dash.cloudflare.com par free account banayein.
+2. Left menu mein "Workers & Pages" -> "Create" -> "Pages" -> "Connect to Git" par click karein.
+3. Apni GitHub repository (mei-master-brasil) select karein aur "Save and Deploy" daba dein.
+4. 30 seconds mein aapki site free global CDN aur HTTPS ke saath live ho jayegi!
+
+STEP 4 (JAB DOMAIN LEIN):
+- `sitemap.xml` aur `robots.txt` ko Notepad mein khol kar `SEUDOMINIO.com.br` ki jagah apni
+  asli domain likh dein aur Google Search Console mein `sitemap.xml` submit kar dein.
