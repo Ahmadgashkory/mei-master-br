@@ -1,24 +1,30 @@
-=====================================================================
-MEI MASTER BRASIL 2026 (v3.0 SEO EXPANSION — 15 PAGES TOTAL)
-GITHUB UPLOAD & GOOGLE SEARCH CONSOLE GUIDE (ROMAN URDU)
-=====================================================================
+========================================================================
+MEI MASTER BRASIL 2026 (v3.1) — GOOGLE SEARCH LOGO & FAVICON UPGRADE
+Domain: https://meimasterbr.online
+========================================================================
 
-Mubarak ho! Is v3.0 package mein ab total 15 HTML Pages + Updated Sitemap hain:
-- 7 Interactive Financial Tools (har page ke andar ab real <a href> SEO links lagaye gaye hain taake Googlebot har page ko khud crawl aur index kare!)
-- 8 Naye Long-Form Portuguese SEO Articles (High-CPC, Low-Competition keywords ke saath)
-- Updated sitemap.xml (jismein ab 7 ke bajaye poore 15 URLs shamil hain)
+1. NAYA KYA ADD HUA HAI (GOOGLE SEARCH LOGO / FAVICON FIX)?
+   - Google Search results mein domain ke saath Brand Logo dikhane ke liye
+     yeh 8 official logo/favicon files add kar di gayi hain:
+     1) favicon.ico (16x16, 32x32, 48x48 multi-size Google Crawler icon)
+     2) favicon.svg (Vector M$ Emerald & Gold Brand Icon)
+     3) favicon-48x48.png (Google Search minimum 48px multiple icon)
+     4) favicon-96x96.png (High-DPI search snippet icon)
+     5) favicon-192x192.png (Android & Chrome icon)
+     6) favicon-512x512.png (Google Organization Schema & Social Share Logo)
+     7) apple-touch-icon.png (180x180 iPhone/iPad Safari icon)
+     8) site.webmanifest (Progressive Web App manifest)
+   - Tamam 15 HTML pages (7 Tools + 8 SEO Articles) ke <head> mein
+     <link rel="icon"> aur Google Organization Logo JSON-LD Schema lag
+     chuka hai.
 
----------------------------------------------------------------------
-STEP 1: GITHUB MEIN FILES KAISE UPLOAD KAREIN (SIRF 1 MINUTE KA KAAM)
----------------------------------------------------------------------
-1. Apni GitHub repository (Ahmadgashkory/mei-master-br) kholein.
-2. Upar "Add file" -> "Upload files" par click karein.
-3. Is ZIP folder ko extract kar ke iske andar maujood SAARI files ko drag-and-drop kar dein (purani files automatically update ho jayengi aur 8 nayi article files add ho jayengi).
-4. Neeche green button "Commit changes" par click kar dein.
-5. Cloudflare 30 seconds mein aapki live website (https://meimasterbr.online) ko update kar dega!
-
----------------------------------------------------------------------
-STEP 2: GOOGLE SEARCH CONSOLE MEIN KYA KARNA HAI?
----------------------------------------------------------------------
-1. Link #2, #4, aur #7 par jahan "Page is not indexed" likha aaya tha, wahan bilkul ghabrane ki zaroorat nahi! Iska matlab sirf yeh hai ke Google ne abhi un 3 pages ko list mein rakha hai. Aap bas unke samne "REQUEST INDEXING" button daba dein.
-2. Naye 8 articles ke links bhi aap ek-ek kar ke upar Inspect bar mein daal kar "Request Indexing" kar sakte hain.
+2. GITHUB PAR KAISE UPLOAD KAREIN (2 MINUTE KA KAAM)?
+   - Is ZIP file ko apne computer par Extract (Unzip) karein.
+   - Apne GitHub repository (Ahmadgashkory/mei-master-br) mein ja kar
+     "Add file" -> "Upload files" par click karein.
+   - Sari files drag-and-drop kar ke "Commit changes" daba dein.
+   - Uske baad Google Search Console mein sirf Homepage
+     (https://meimasterbr.online/) ko URL Inspection bar mein daal kar
+     ek dafa "Request Indexing" daba dein taake Google agle kuch dinon
+     mein globe ki jagah aapka M$ green logo show karna shuru kar de!
+========================================================================
