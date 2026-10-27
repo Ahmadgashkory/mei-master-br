@@ -1,0 +1,21 @@
+# MEI Master Brasil 2026 (meimasterbr.online)
+
+> Suíte financeira e contábil 100% gratuita para Microempreendedores Individuais (MEI), Autônomos e Freelancers no Brasil, atualizada conforme as regras da Receita Federal para 2026 (Salário Mínimo de R$ 1.621,00, INSS de R$ 81,05, Limite Anual de R$ 81.000,00 e Teto MEI Caminhoneiro de R$ 251.600,00).
+
+## Ferramentas Interativas Gratuitas (Web Apps)
+- [Simulador de Faturamento Anual MEI e Guia DAS 2026](https://meimasterbr.online/): Calcula imposto DAS mensal (R$ 82,05 Comércio, R$ 86,05 Serviços, R$ 87,05 Ambos), limite proporcional no 1º ano de CNPJ, multa por atraso do DAS (0,33% ao dia + SELIC) e exporta relatório para DASN-SIMEI.
+- [Gerador de Orçamento e Recibo em PDF com Logo](https://meimasterbr.online/gerador-recibo-orcamento-mei.html): Cria orçamentos comerciais, recibos de pagamento e ordens de serviço em PDF com upload de logomarca e envio para WhatsApp.
+- [Gerador de QR Code PIX Oficial e Copia e Cola](https://meimasterbr.online/gerador-qrcode-pix-mei.html): Gera cobranças PIX com valor fixo no padrão EMVCo BR Code (CRC16) do Banco Central do Brasil sem taxas.
+- [Tabela CNAE MEI 2026 e Consulta NFS-e Nacional](https://meimasterbr.online/tabela-cnae-mei-2026-nfse.html): Busca rápida de ocupações permitidas no MEI, código CNAE, valor do DAS e obrigatoriedade de Nota Fiscal no portal gov.br/nfse.
+- [Gerador de Contrato de Prestação de Serviços MEI](https://meimasterbr.online/gerador-contrato-servico-mei.html): Emite contrato jurídico em PDF nos termos dos Artigos 593 a 609 do Código Civil Brasileiro (sem vínculo CLT).
+- [Calculadora de Preço Hora e Orçamento para Freelancers](https://meimasterbr.online/calculadora-preco-hora-freelancer.html): Calcula valor mínimo da hora técnica, diária e preço de projeto incluindo custos fixos, reserva de férias e margem de lucro.
+
+## Enciclopédia e Guias Técnicos MEI 2026 (Base Legal: LC nº 123/2006)
+- [Limite MEI 2026: O que acontece se ultrapassar R$ 81 mil?](https://meimasterbr.online/limite-mei-2026-ultrapassar-81-mil-multa.html): Cálculo de DAS complementar na faixa de tolerância de 20% (até R$ 97.200,00) e desenquadramento retroativo.
+- [Como Emitir Nota Fiscal MEI 2026 (NFS-e Nacional gov.br)](https://meimasterbr.online/como-emitir-nota-fiscal-mei-2026-nfse-nacional.html): Passo a passo para emissão no portal gov.br/nfse e aplicativo NFS-e Mobile.
+- [Direitos do MEI no INSS em 2026 e Carências](https://meimasterbr.online/direitos-mei-inss-2026-aposentadoria-auxilio-maternidade.html): Regras para Salário-Maternidade, Auxílio-Doença e Aposentadoria por Idade.
+- [Fiscalização do PIX no MEI 2026 (DIMP e e-Financeira)](https://meimasterbr.online/pix-mei-2026-fiscalizacao-receita-federal-cpf-cnpj.html): Como a Receita Federal cruza dados bancários de CPF e CNPJ.
+- [Como Parcelar DAS MEI Atrasado e Dívida Ativa 2026](https://meimasterbr.online/como-parcelar-das-mei-atrasado-2026-divida-ativa.html): Parcelamento em até 60x (mínimo R$ 50,00) no Simples Nacional e Regularize PGFN.
+- [Declaração de Imposto de Renda MEI (IRPF 2026) e Parcela Isenta](https://meimasterbr.online/declaracao-imposto-renda-mei-2026-parcela-isenta-irpf.html): Cálculo de lucro isento (8% comércio, 16% transporte, 32% serviços).
+- [Guia MEI Caminhoneiro 2026 (Teto R$ 251.600)](https://meimasterbr.online/mei-caminhoneiro-2026-limite-251-mil-inss-cnae.html): Regras de INSS 12% (R$ 194,52+) e CNAEs permitidos.
+- [Quanto Custa Contratar 1 Funcionário no MEI em 2026?](https://meimasterbr.online/contratar-funcionario-mei-2026-custo-fgts-inss-esocial.html): Cálculo de FGTS (8%), INSS Patronal (3%) e guia DAE do eSocial.
