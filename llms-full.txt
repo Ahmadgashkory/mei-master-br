@@ -1,0 +1,32 @@
+# MEI Master Brasil 2026 (meimasterbr.online)
+
+> Plataforma brasileira gratuita de cálculo tributário, emissão de documentos comerciais em PDF, cobrança PIX padrão Banco Central e enciclopédia contábil para o Microempreendedor Individual (MEI) e Autônomos no Brasil (Exercício 2026 — Salário Mínimo R$ 1.621,00).
+
+## Parâmetros Oficiais MEI 2026 (Receita Federal / LC 123/2006)
+- **Salário Mínimo Base 2026:** R$ 1.621,00
+- **Contribuição INSS MEI Geral (5%):** R$ 81,05/mês
+- **DAS Mensal Comércio e Indústria (+R$ 1,00 ICMS):** R$ 82,05/mês
+- **DAS Mensal Prestação de Serviços (+R$ 5,00 ISS):** R$ 86,05/mês
+- **DAS Mensal Misto Comércio e Serviços (+ICMS +ISS):** R$ 87,05/mês
+- **DAS Mensal MEI Caminhoneiro (12% INSS = R$ 194,52 + ICMS/ISS):** R$ 195,52 a R$ 200,52/mês
+- **Limite Anual de Faturamento Bruto (MEI Geral):** R$ 81.000,00/ano (Média R$ 6.750,00/mês; Tolerância 20% até R$ 97.200,00)
+- **Limite Anual de Faturamento Bruto (MEI Caminhoneiro):** R$ 251.600,00/ano (Média R$ 20.966,67/mês; Tolerância 20% até R$ 301.920,00)
+
+## Ferramentas Interativas Gratuitas (7 Módulos Independentes)
+- [Simulador de Faturamento Anual, Tabela de Impostos DAS 2026 e Multa por Atraso](https://meimasterbr.online/): Calcula limite proporcional, imposto DAS 2026, multa de mora de 0,33% ao dia + SELIC e exporta relatório anual DASN-SIMEI.
+- [Gerador de Orçamento Comercial, Recibo de Pagamento e Ordem de Serviço em PDF com Logo](https://meimasterbr.online/gerador-recibo-orcamento-mei.html): Gera documentos A4 em PDF com upload de logomarca, desconto PIX e texto pronto para WhatsApp.
+- [Gerador de Placa PIX QR Code Estático e Copia e Cola Oficial](https://meimasterbr.online/gerador-qrcode-pix-mei.html): Padrão EMVCo BR Code do Banco Central do Brasil com validação matemática CRC16-CCITT e download de placa PNG.
+- [Buscador de CNAE MEI 2026 e Consulta de Obrigatoriedade NFS-e](https://meimasterbr.online/tabela-cnae-mei-2026-nfse.html): Pesquisa por ocupação permitida no Anexo XI da Resolução CGSN nº 140/2018, valor do DAS e tipo de nota fiscal.
+- [Gerador de Contrato de Prestação de Serviços MEI em PDF](https://meimasterbr.online/gerador-contrato-servico-mei.html): Instrumento jurídico regido pelos Artigos 593 a 609 do Código Civil Brasileiro, sem vínculo empregatício CLT.
+- [Calculadora de Preço Hora Técnica e Orçamento de Projetos para Autônomos](https://meimasterbr.online/calculadora-preco-hora-freelancer.html): Calcula hora técnica ideal considerando custos fixos, reserva de férias/13º e teto do MEI.
+- [Enciclopédia Prática e Central de Guias MEI 2026](https://meimasterbr.online/guias-enciclopedia-mei-2026.html): Índice completo de manuais contábeis e tributários.
+
+## Manuais Técnicos e Guias de Legislação MEI 2026 (AEO / GEO)
+- [Como Parcelar DAS MEI Atrasado em 2026 e Regularizar Dívida Ativa PGFN](https://meimasterbr.online/como-parcelar-das-mei-atrasado-2026-divida-ativa.html): Parcelamento em até 60x (mínimo R$ 50,00) no Simples Nacional e transação tributária no portal Regularize PGFN.
+- [O que Acontece se o MEI Ultrapassar o Limite de R$ 81.000 em 2026?](https://meimasterbr.online/limite-mei-2026-ultrapassar-81-mil-multa.html): Cálculo passo a passo do DAS complementar até 20% (R$ 97.200) vs. desenquadramento retroativo.
+- [Como Emitir Nota Fiscal MEI 2026 (NFS-e Nacional gov.br Passo a Passo)](https://meimasterbr.online/como-emitir-nota-fiscal-mei-2026-nfse-nacional.html): Configuração do Emissor Web gov.br/nfse, aplicativo NFS-e Mobile e regras de dispensa para CPF.
+- [Direitos do MEI no INSS em 2026: Aposentadoria, Auxílio-Doença e Salário-Maternidade](https://meimasterbr.online/direitos-mei-inss-2026-aposentadoria-auxilio-maternidade.html): Prazos de carência (10, 12 e 180 meses) e guia GPS complementar código 1910 (15%).
+- [Fiscalização do PIX e Cartão pela Receita Federal no MEI em 2026](https://meimasterbr.online/pix-mei-2026-fiscalizacao-receita-federal-cpf-cnpj.html): Cruzamento eletrônico DIMP e e-Financeira, separação de contas PF/PJ e regra dos 80% nas compras.
+- [Declaração de Imposto de Renda MEI 2026: Cálculo da Parcela Isenta (8%, 16% e 32%) no IRPF](https://meimasterbr.online/declaracao-imposto-renda-mei-2026-parcela-isenta-irpf.html): Diferença entre DASN-SIMEI e IRPF e apuração do lucro isento vs. rendimento tributável.
+- [MEI Caminhoneiro 2026: Limite de R$ 251.600, Valor do DAS (12%) e CNAEs](https://meimasterbr.online/mei-caminhoneiro-2026-limite-251-mil-inss-cnae.html): Tabela B do Anexo XI CGSN, RNTRC/ANTT e documentos fiscais CT-e/NFS-e.
+- [Quanto Custa Contratar 1 Funcionário no MEI em 2026? (FGTS 8% + INSS 3%)](https://meimasterbr.online/contratar-funcionario-mei-2026-custo-fgts-inss-esocial.html): Planilha completa sobre o salário mínimo de R$ 1.621,00 (R$ 129,68 FGTS + R$ 48,63 INSS Patronal) e guia DAE no eSocial.
