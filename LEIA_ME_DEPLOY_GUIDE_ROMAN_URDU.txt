@@ -1,34 +1,30 @@
-========================================================================
-MEI MASTER BRASIL 2026 (v4.0) — FULL AEO + GEO + SEO DE-DUPLICATED SUITE
-Domain: https://meimasterbr.online
-========================================================================
+====================================================================
+MEI MASTER BRASIL 2026 — v5.0 FULL MICRO-NICHE + TOOL EXPANSION (37 FILES)
+====================================================================
 
-1. IS v4.0 PACKAGE MEIN KON-KON SE CORE ISSUES SOLVE KIYE GAYE HAIN?
-   - [SOLVED] Issue #1 (7 Tools Duplicated on Homepage & Tool Pages):
-     Pehle 7 ke 7 tool pages mein baaqi 6 tools ka hidden HTML/JS code
-     duplicate tha (139 KB per file), jiski wajah se Google aur Bing unhein
-     duplicate samajh rahe the. Ab 7 ke 7 tool pages 100% STANDALONE hain:
-     * index.html par sirf Simulador DAS + 6-Tool Hub Grid + Tabela de Impostos
-       MEI 2026 + 1,000 words guide hai.
-     * Baaqi 6 tool pages par sirf unka apna tool + Fictitious Data/LGPD note
-       + 40-word AEO Direct Answer Box + 900+ words deep guide + Table hai!
-   - [SOLVED] Issue #2 (Thin 350-Word Articles Flagged by Bing & Google):
-     Sirf 1 article nahi, balke 8 ke 8 Portuguese SEO Articles ko 1,200+ se
-     1,500+ words ki deep AEO/GEO guides mein upgrade kar diya gaya hai (har
-     article mein 40-word Resumo Rápido box, 2026 official table, practical
-     examples, step-by-step gov.br instructions, BreadcrumbList + FAQPage
-     Schema, aur E-E-A-T legal disclaimer laga diya hai).
-   - [SOLVED] Issue #3 (GEO / AI Search & Bing IndexNow):
-     * llms.txt aur llms-full.txt shamil hain taake ChatGPT Search, Perplexity,
-       Claude, Gemini aur Bing Copilot aapki site ko cite karein.
-     * robots.txt mein tamam AI bots (GPTBot, OAI-SearchBot, PerplexityBot,
-       ClaudeBot, Google-Extended, bingbot) ko explicit Allow: / diya gaya hai.
-     * Bing IndexNow Key file (8f9d2a4b6c1e3f5a7b9c0d2e4f6a8b0c.txt) aur
-       8 official Brand Favicon/Logo files shamil hain.
+1. IS PACKAGE MEIN KYA HAI (PURANE 15 PAGES + 6 NAYE ZERO-COMPETITION PAGES):
+   - Aapke pehle wale 15 pages ka URL aur Title 100% same rakha gaya hai taake Google Search Console ki indexing aur ranking bilkul disturb na ho!
+   - Un 15 pages mein Official Government Links (gov.br, PGMEI, NFS-e, Regularize PGFN) aur naye pages ke internal links add kar diye gaye hain.
+   - 6 Bilkul Naye High-Traffic Tool + Profession Pages add kiye gaye hain (har page mein Interactive JS Calculator + 1,250+ words guide + Worked Examples + FAQ Schema hai):
+     1) calculadora-multa-juros-das-mei-atrasado.html (Late DAS 0.33%/day + SELIC Calculator)
+     2) mei-vendedor-shopee-mercado-livre-2026.html (Shopee & Mercado Livre Seller Simulator)
+     3) mei-motorista-uber-99-entregador-ifood-2026.html (Uber, 99 & iFood Profit + INSS Calculator)
+     4) mei-cabeleireiro-manicure-barbeiro-salao-parceiro-2026.html (Salao-Parceiro Quota Calculator)
+     5) mei-pedreiro-eletricista-construcao-civil-2026.html (Construction Obra & 20% INSS Calculator)
+     6) mei-programador-ti-marketing-digital-2026.html (Tech/Marketing MEI vs Simples Fator R 6% Comparator)
 
-2. GITHUB PAR UPLOAD KARNE KA TAREEQA (2 MINUTE):
-   - Is ZIP file ko apne computer par Extract (Unzip) karein.
-   - GitHub repository (Ahmadgashkory/mei-master-br) mein "Add file" ->
-     "Upload files" par click karein, sari 31 files drag-and-drop kar ke
-     "Commit changes" daba dein.
-========================================================================
+2. GITHUB PAR KAISE UPLOAD KAREIN (SIRF 2 MINUTE KA KAAM):
+   - Is ZIP file ko apne computer/mobile par extract (unzip) karein.
+   - Apne GitHub repository (Ahmadgashkory/mei-master-br) mein jayein -> "Add file" -> "Upload files" par click karein.
+   - Saari files select kar ke upload kar dein aur "Commit changes" daba dein (Cloudflare Pages 30 seconds mein khud live kar dega!).
+
+3. GOOGLE SEARCH CONSOLE MEIN SIRF 6 NAYE URLS INSPECT KAREIN:
+   - Purane pages ko dobara inspect karne ki zaroorat nahi hai!
+   - Search Console ke upar search bar (URL Inspection) mein sirf yeh 6 naye URLs ek-ek kar ke dalein aur "Request Indexing" par click kar dein:
+     * https://meimasterbr.online/calculadora-multa-juros-das-mei-atrasado.html
+     * https://meimasterbr.online/mei-vendedor-shopee-mercado-livre-2026.html
+     * https://meimasterbr.online/mei-motorista-uber-99-entregador-ifood-2026.html
+     * https://meimasterbr.online/mei-cabeleireiro-manicure-barbeiro-salao-parceiro-2026.html
+     * https://meimasterbr.online/mei-pedreiro-eletricista-construcao-civil-2026.html
+     * https://meimasterbr.online/mei-programador-ti-marketing-digital-2026.html
+====================================================================
