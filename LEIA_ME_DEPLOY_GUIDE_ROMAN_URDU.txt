@@ -1,30 +1,23 @@
 ====================================================================
-MEI MASTER BRASIL 2026 — v5.0 FULL MICRO-NICHE + TOOL EXPANSION (37 FILES)
+MEI MASTER BRASIL — v6.0 ULTIMATE TECHNICAL & 30-PAGE OVERHAUL (49 FILES)
 ====================================================================
 
-1. IS PACKAGE MEIN KYA HAI (PURANE 15 PAGES + 6 NAYE ZERO-COMPETITION PAGES):
-   - Aapke pehle wale 15 pages ka URL aur Title 100% same rakha gaya hai taake Google Search Console ki indexing aur ranking bilkul disturb na ho!
-   - Un 15 pages mein Official Government Links (gov.br, PGMEI, NFS-e, Regularize PGFN) aur naye pages ke internal links add kar diye gaye hain.
-   - 6 Bilkul Naye High-Traffic Tool + Profession Pages add kiye gaye hain (har page mein Interactive JS Calculator + 1,250+ words guide + Worked Examples + FAQ Schema hai):
-     1) calculadora-multa-juros-das-mei-atrasado.html (Late DAS 0.33%/day + SELIC Calculator)
-     2) mei-vendedor-shopee-mercado-livre-2026.html (Shopee & Mercado Livre Seller Simulator)
-     3) mei-motorista-uber-99-entregador-ifood-2026.html (Uber, 99 & iFood Profit + INSS Calculator)
-     4) mei-cabeleireiro-manicure-barbeiro-salao-parceiro-2026.html (Salao-Parceiro Quota Calculator)
-     5) mei-pedreiro-eletricista-construcao-civil-2026.html (Construction Obra & 20% INSS Calculator)
-     6) mei-programador-ti-marketing-digital-2026.html (Tech/Marketing MEI vs Simples Fator R 6% Comparator)
-
-2. GITHUB PAR KAISE UPLOAD KAREIN (SIRF 2 MINUTE KA KAAM):
-   - Is ZIP file ko apne computer/mobile par extract (unzip) karein.
-   - Apne GitHub repository (Ahmadgashkory/mei-master-br) mein jayein -> "Add file" -> "Upload files" par click karein.
-   - Saari files select kar ke upload kar dein aur "Commit changes" daba dein (Cloudflare Pages 30 seconds mein khud live kar dega!).
-
-3. GOOGLE SEARCH CONSOLE MEIN SIRF 6 NAYE URLS INSPECT KAREIN:
-   - Purane pages ko dobara inspect karne ki zaroorat nahi hai!
-   - Search Console ke upar search bar (URL Inspection) mein sirf yeh 6 naye URLs ek-ek kar ke dalein aur "Request Indexing" par click kar dein:
-     * https://meimasterbr.online/calculadora-multa-juros-das-mei-atrasado.html
-     * https://meimasterbr.online/mei-vendedor-shopee-mercado-livre-2026.html
-     * https://meimasterbr.online/mei-motorista-uber-99-entregador-ifood-2026.html
-     * https://meimasterbr.online/mei-cabeleireiro-manicure-barbeiro-salao-parceiro-2026.html
-     * https://meimasterbr.online/mei-pedreiro-eletricista-construcao-civil-2026.html
-     * https://meimasterbr.online/mei-programador-ti-marketing-digital-2026.html
+1. IS v6.0 UPDATE NE KAUNSI 5 BADI TECHNICAL GLITCHES THEEK KI HAIN:
+   - GLITCH #1 FIXED (Cloudflare .html 308 Redirect vs Canonical Loop):
+     Aapke Google Search Console screenshot mein "Alternative page with proper canonical tag (10)" aur "Page with redirect (1)" is liye aa raha tha kyunke Cloudflare Pages har ".html" URL ko 308 Redirect kar ke bina ".html" ke kholta hai, jabke hamare sitemap.xml aur canonical tags mein ".html" likha tha!
+     Is v6.0 mein saare 30 pages ke Canonical tags, Sitemap URLs aur Internal Links ko 100% Clean URLs (bina .html ke, jaise https://meimasterbr.online/gerador-recibo-orcamento-mei) kar diya gaya hai jo seedha HTTP 200 OK dete hain!
+   - GLITCH #2 FIXED (2025 + 2026 Multi-Year Search Coverage):
+     Pehle har page sirf "2026" likh raha tha jis se "2025" aur bina saal wale 90% searches miss ho rahe the. Ab har page 2025 (R$ 1.518) + 2026 (R$ 1.621) + Evergreen keywords teeno par rank karega!
+   - GLITCH #3 FIXED (9 Brand-New Instant PDF & Tax Generators — Total 30 Pages!):
+     1) /declaracao-faturamento-mei-pdf-banco-emprestimo
+     2) /relatorio-mensal-receitas-brutas-mei-pdf
+     3) /gerador-ordem-servico-mei-pdf
+     4) /calculadora-inss-complementar-mei-gps-1910
+     5) /calculadora-desenquadramento-mei-simples-nacional
+     6) /calculadora-taxa-maquininha-cartao-mei
+     7) /simulador-salario-maternidade-auxilio-doenca-mei
+     8) /gerador-termo-garantia-servico-produto-mei
+     9) /consulta-situacao-cnpj-mei-ccmei-certidao
+   - GLITCH #4 FIXED (1-Click IndexNow Instant Pusher):
+     Upload karne ke baad browser mein https://meimasterbr.online/indexnow-booster kholein aur hara button dabayein — saare 30 URLs 1 click mein Bing/IndexNow ko push ho jayenge!
 ====================================================================
