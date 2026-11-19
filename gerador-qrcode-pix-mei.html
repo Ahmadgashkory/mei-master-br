@@ -1,899 +1,212 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerador de QR Code PIX com Valor Fixo e Placa Imprimível [Grátis sem Taxa] — MEI Master.br</title>
-  <meta name="description" content="Gere gratuitamente Placa PIX QR Code Estático com valor fixo ou aberto e código Copia e Cola oficial do Banco Central (EMVCo CRC16) para CNPJ MEI e autônomos." />
+  <title>Gerador de QR Code PIX com Valor Fixo e Copia e Cola [Padrão Banco Central Grátis] — MEI Master.br</title>
+  <meta name="description" content="Gere grátis código PIX Copia e Cola e Placa QR Code Estático no padrão oficial EMVCo CRC16-CCITT do Banco Central com valor fixo ou aberto para seu CNPJ MEI." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <link rel="canonical" href="https://meimasterbr.online/gerador-qrcode-pix-mei" />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="stylesheet" href="/styles.min.css" />
-  <!-- Official Google Search Favicon, Apple Touch Icon & Web Manifest -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#059669" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="MEI Master.br" />
-  <meta property="og:title" content="Gerador de Placa PIX QR Code e Copia e Cola Oficial MEI 2026 — MEI Master.br" />
-  <meta property="og:description" content="Gere gratuitamente Placa QR Code PIX Estático com valor fixo e código Copia e Cola no padrão EMVCo CRC16 do Banco Central para CNPJ MEI e autônomos." />
+  <meta property="og:title" content="Gerador de QR Code PIX com Valor Fixo e Copia e Cola [Padrão Banco Central Grátis] — MEI Master.br" />
+  <meta property="og:description" content="Gere grátis código PIX Copia e Cola e Placa QR Code Estático no padrão oficial EMVCo CRC16-CCITT do Banco Central com valor fixo ou aberto para seu CNPJ MEI." />
   <meta property="og:url" content="https://meimasterbr.online/gerador-qrcode-pix-mei" />
   <meta property="og:image" content="https://meimasterbr.online/favicon-512x512.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-  <!-- Google Rich Snippet Schema (Organization + WebSite + SoftwareApplication + FAQPage) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2782656636740515" crossorigin="anonymous"></script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://meimasterbr.online/#organization",
-        "name": "MEI Master.br",
-        "url": "https://meimasterbr.online/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://meimasterbr.online/favicon-512x512.png",
-          "width": 512,
-          "height": 512
-        }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://meimasterbr.online/#website",
-        "url": "https://meimasterbr.online/",
-        "name": "MEI Master.br",
-        "alternateName": ["MEI Master Brasil", "MEI Master Brasil 2026"],
-        "publisher": {
-          "@id": "https://meimasterbr.online/#organization"
-        }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Gerador de Placa PIX QR Code e Copia e Cola Oficial MEI 2026 — MEI Master.br",
-        "url": "https://meimasterbr.online/gerador-qrcode-pix-mei",
-        "operatingSystem": "Web Browser",
-        "applicationCategory": "BusinessApplication",
-        "inLanguage": "pt-BR",
-        "offers": {
-          "@type": "Offer",
-          "price": "0.00",
-          "priceCurrency": "BRL"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://meimasterbr.online/#organization",
+      "name": "MEI Master.br",
+      "url": "https://meimasterbr.online/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://meimasterbr.online/favicon-512x512.png",
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://meimasterbr.online/"
         },
-        "description": "Gere gratuitamente Placa QR Code PIX Estático com valor fixo e código Copia e Cola no padrão EMVCo CRC16 do Banco Central para CNPJ MEI e autônomos."
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "O Gerador de QR Code PIX do MEI Master.br cobra alguma taxa sobre os pagamentos?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Não! O código é gerado 100% no seu navegador seguindo o padrão aberto EMVCo BR Code do Banco Central. O dinheiro cai diretamente na sua conta bancária vinculada à chave PIX informada."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "A Receita Federal fiscaliza os pagamentos recebidos via PIX no MEI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sim. Os bancos enviam relatórios financeiros (DIMP e e-Financeira) à Receita Federal. Por isso, o MEI deve separar a conta PJ da conta PF e declarar todas as vendas na DASN-SIMEI."
-            }
-          }
-        ]
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gerador PIX QR Code",
+          "item": "https://meimasterbr.online/gerador-qrcode-pix-mei"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Gerador de Placa PIX QR Code Estático com Valor Fixo e Código Copia e Cola (EMVCo CRC16)",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://meimasterbr.online/gerador-qrcode-pix-mei",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
       }
-    ]
-  }
-  </script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b',
-            }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Existe alguma taxa ao gerar PIX Copia e Cola por aqui?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zero taxa! O dinheiro cai instantaneamente direto na conta vinculada à sua chave PIX."
           }
         }
-      }
-    };
+      ]
+    }
+  ]
+}
   </script>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    html.dark body {
-      background-color: #020617;
-      color: #f1f5f9;
-    }
-    html.dark .bg-white {
-      background-color: #0f172a !important;
-      color: #f1f5f9;
-    }
-    html.dark .bg-slate-50 {
-      background-color: #1e293b !important;
-    }
-    html.dark .border-slate-200,
-    html.dark .border-slate-100,
-    html.dark .border-slate-300 {
-      border-color: #334155 !important;
-    }
-    html.dark .text-slate-900,
-    html.dark .text-slate-800 {
-      color: #f8fafc !important;
-    }
-    html.dark .text-slate-600,
-    html.dark .text-slate-500 {
-      color: #94a3b8 !important;
-    }
-    html.dark input,
-    html.dark select,
-    html.dark textarea {
-      background-color: #1e293b !important;
-      color: #f8fafc !important;
-      border-color: #475569 !important;
-    }
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      #printableDocumentArea, #printableDocumentArea *,
-      #printableContractArea, #printableContractArea * {
-        visibility: visible;
-      }
-      #printableDocumentArea, #printableContractArea {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        box-shadow: none !important;
-        border: none !important;
-        background: #ffffff !important;
-        color: #000000 !important;
-      }
-    }
-  </style>
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-20 lg:pb-0">
-
-  <!-- Top Utility Bar -->
-  <div class="bg-slate-900 text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2.5">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Receita Federal 2026 • Salário Mínimo R$ 1.621,00 (DAS R$ 82,05 a R$ 87,05)
-        </span>
-        <span class="hidden xl:inline text-slate-400">Suíte MEI Master.br • Processamento 100% Local LGPD</span>
-      </div>
-      <div class="flex flex-wrap items-center gap-2">
-        <button id="toggleDarkModeBtn" type="button" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium transition">
-          <span id="darkModeIcon">🌙</span>
-          <span id="darkModeLabel">Modo Escuro</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main SaaS Header with Crawlable <a href> Links -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-center justify-between py-3 gap-3">
-        <a href="/" class="flex items-center gap-3">
-          <img src="/favicon-96x96.png" alt="Logo MEI Master Brasil" class="w-11 h-11 rounded-xl shadow-md shadow-emerald-600/20" />
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900">MEI Master<span class="text-emerald-600">.br</span></span>
-              <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">Suíte 2026</span>
-            </div>
-            <p class="text-xs text-slate-500">Imposto DAS, Recibos PDF com Logo, PIX Oficial, CNAE, Contratos e Guias</p>
-          </div>
-        </a>
-
-        <nav class="flex items-center gap-1 overflow-x-auto max-w-full pb-1 sm:pb-0" aria-label="Navegação Principal">
-          <a href="/" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">📊 Simulador MEI & DAS</a>
-          <a href="/gerador-recibo-orcamento-mei" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">📄 Orçamento & Recibo PDF</a>
-          <a href="/gerador-qrcode-pix-mei" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap bg-emerald-600 text-white shadow-sm">⚡ Gerador PIX & QR Code</a>
-          <a href="/tabela-cnae-mei-2026-nfse" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">🔍 Buscador CNAE & NFS-e</a>
-          <a href="/gerador-contrato-servico-mei" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">⚖️ Gerador de Contrato</a>
-          <a href="/calculadora-preco-hora-freelancer" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">🧮 Preço Hora & Lucro</a>
-          <a href="/guias-enciclopedia-mei-2026" class="px-3 py-2 rounded-lg text-xs font-bold transition whitespace-nowrap text-slate-600 hover:bg-slate-100">📚 Guias MEI & Blog SEO</a>
-        </nav>
-      </div>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-2.5">
+        <img src="/favicon-96x96.png" alt="Logo MEI Master.br" class="w-9 h-9 rounded-xl" width="36" height="36" />
+        <span class="font-extrabold text-lg text-slate-900">MEI Master<span class="text-emerald-600">.br</span></span>
+      </a>
+      <nav class="flex items-center gap-1.5 overflow-x-auto text-xs font-bold">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 whitespace-nowrap">Simulador DAS</a>
+        <a href="/declaracao-faturamento-mei-pdf-banco-emprestimo" class="px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 whitespace-nowrap">Declaração PDF</a>
+        <a href="/relatorio-mensal-receitas-brutas-mei-pdf" class="px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 whitespace-nowrap">Relatório Mensal</a>
+        <a href="/gerador-recibo-orcamento-mei" class="px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 whitespace-nowrap">Recibo PDF</a>
+        <a href="/calculadora-multa-juros-das-mei-atrasado" class="px-3 py-1.5 rounded-lg text-slate-700 hover:bg-slate-100 whitespace-nowrap">Multa DAS</a>
+      </nav>
     </div>
   </header>
 
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
-
-    <!-- Nota de Transparência E-E-A-T & Processamento Local LGPD -->
-    <div class="bg-blue-50/90 border border-blue-200 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-blue-950">
-      <div class="space-y-0.5">
-        <span class="font-extrabold uppercase tracking-wider text-[11px] text-blue-700">🔒 Privacidade LGPD & Dados de Exemplo</span>
-        <p class="leading-relaxed">Os valores e nomes pré-preenchidos nos campos abaixo são <strong>exemplos fictícios</strong> apenas para facilitar sua simulação. Digite os dados reais da sua empresa: tudo é processado <strong>100% localmente no seu navegador</strong> e nunca é salvo em servidores externos.</p>
-      </div>
-      <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 font-bold text-[11px] shrink-0">100% Gratuito • Sem Cadastro</span>
-    </div>
-
-    <section id="tab-pix" class="tab-panel space-y-6">
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Padrão Oficial Banco Central do Brasil (EMVCo BR Code CRC16)</span>
-        <h1 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-0.5">Gerador de Placa PIX QR Code e Código "Copia e Cola" com Valor Fixo</h1>
-        <p class="text-xs sm:text-sm text-slate-500">Gere cobranças instantâneas sem taxas de maquininha e baixe a imagem do QR Code para enviar no WhatsApp.</p>
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-7 space-y-6">
+    <article class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-200 pb-4 space-y-2 no-print">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">Gerador de Placa PIX QR Code Estático com Valor Fixo e Código Copia e Cola (EMVCo CRC16)</h1>
+        <p class="text-xs text-slate-500">Atualizado para os exercícios <strong>2025 (SM R$ 1.518)</strong> e <strong>2026 (SM R$ 1.621)</strong> • Base Legal: LC nº 123/2006</p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-4">
-          <h3 class="font-bold text-base text-slate-900 border-b border-slate-100 pb-3">Configurar Cobrança PIX</h3>
+      <div class="p-4 rounded-xl bg-emerald-50 border-l-4 border-emerald-600 text-sm text-slate-900 leading-relaxed no-print">
+        <span class="text-xs font-extrabold uppercase text-emerald-800 block mb-1">⚡ Resposta Direta</span>
+        Este gerador cria o payload oficial <strong>BR Code (EMVCo + validação matemática CRC16-CCITT)</strong> do Banco Central do Brasil diretamente no seu navegador, sem taxas e sem intermediários. Digite sua chave PIX (CNPJ, CPF, E-mail ou Celular), defina um valor fixo opcional e copie o código <strong>PIX Copia e Cola</strong> ou imprima sua placa!
+      </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label for="pixKeyType" class="block text-xs font-bold text-slate-600 mb-1">Tipo da Sua Chave PIX</label>
-              <select id="pixKeyType" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-medium">
-                <option value="cnpj">CNPJ / CPF (Apenas números)</option>
-                <option value="phone">Celular (+55DDDNúmero)</option>
-                <option value="email">E-mail</option>
-                <option value="random">Chave Aleatória (EVP)</option>
-              </select>
-            </div>
-            <div>
-              <label for="pixKeyValue" class="block text-xs font-bold text-slate-600 mb-1">Sua Chave PIX</label>
-              <input id="pixKeyValue" type="text" value="48192734000189" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-semibold" />
-            </div>
-            <div>
-              <label for="pixMerchantName" class="block text-xs font-bold text-slate-600 mb-1">Nome do Recebedor (Até 25 letras)</label>
-              <input id="pixMerchantName" type="text" maxlength="25" value="SILVA SOLUCOES MEI" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
-            </div>
-            <div>
-              <label for="pixMerchantCity" class="block text-xs font-bold text-slate-600 mb-1">Cidade (Sem acentos, até 15 letras)</label>
-              <input id="pixMerchantCity" type="text" maxlength="15" value="SAO PAULO" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
-            </div>
-            <div>
-              <label for="pixAmount" class="block text-xs font-bold text-slate-600 mb-1">Valor da Cobrança (R$)</label>
-              <input id="pixAmount" type="number" step="0.01" min="0" value="250.00" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm font-bold text-emerald-700" />
-            </div>
-            <div>
-              <label for="pixTxId" class="block text-xs font-bold text-slate-600 mb-1">Identificador / Pedido (TXID)</label>
-              <input id="pixTxId" type="text" maxlength="20" value="PEDIDO842" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" />
-            </div>
-          </div>
-
-          <button type="button" id="generatePixBtn" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm transition">
-            ⚡ Atualizar QR Code e Código PIX Copia e Cola
-          </button>
+      
+      <section class="p-6 sm:p-8 rounded-2xl bg-slate-900 text-white space-y-5 shadow-xl border border-slate-800 no-print">
+        <div class="border-b border-slate-800 pb-3">
+          <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold text-xs uppercase">Padrão Banco Central EMVCo CRC16-CCITT</span>
+          <h2 class="text-xl font-extrabold mt-1">Gerar Código PIX Copia e Cola e Placa de Balcão</h2>
         </div>
-
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col items-center justify-between space-y-5">
-          <div class="text-center space-y-1">
-            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs">QR Code Pronto para Escaneamento</span>
-            <h4 id="pixPreviewTitle" class="text-lg font-extrabold text-slate-900">Pagamento de R$ 250,00 para SILVA SOLUCOES MEI</h4>
-          </div>
-
-          <div class="p-4 bg-white border-2 border-emerald-500 rounded-2xl shadow-sm flex items-center justify-center">
-            <div id="pixQrCodeContainer" class="w-48 h-48 flex items-center justify-center"></div>
-          </div>
-
-          <div class="w-full space-y-2">
-            <label for="pixPayloadOutput" class="block text-xs font-bold uppercase text-slate-500">Código Oficial PIX Copia e Cola (Com CRC16):</label>
-            <textarea id="pixPayloadOutput" readonly rows="3" class="w-full rounded-xl bg-slate-100 border border-slate-300 p-3 text-xs font-mono text-slate-700 select-all"></textarea>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
-              <button type="button" id="copyPixCodeBtn" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition">
-                📋 Copiar Código PIX Copia e Cola
-              </button>
-              <button type="button" id="copyPixWhatsappBtn" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition">
-                📲 Copiar Cobrança p/ WhatsApp
-              </button>
-              <button type="button" id="downloadPixQrPngBtn" class="py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition">
-                🖼️ Baixar Imagem QR
-              </button>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
+          <div><label class="block font-bold text-slate-300 mb-1">Chave PIX (CNPJ/Celular/E-mail)</label><input id="pxKey" type="text" value="45678901000123" class="w-full rounded-xl bg-slate-800 border border-slate-700 px-3 py-2 font-semibold" /></div>
+          <div><label class="block font-bold text-slate-300 mb-1">Nome do Recebedor (sem acento)</label><input id="pxName" type="text" value="MEI MASTER BRASIL" class="w-full rounded-xl bg-slate-800 border border-slate-700 px-3 py-2 font-semibold" /></div>
+          <div><label class="block font-bold text-slate-300 mb-1">Cidade (sem acento)</label><input id="pxCity" type="text" value="SAO PAULO" class="w-full rounded-xl bg-slate-800 border border-slate-700 px-3 py-2 font-semibold" /></div>
+          <div><label class="block font-bold text-slate-300 mb-1">Valor Fixo R$ (0 = aberto)</label><input id="pxVal" type="number" value="150.00" step="1" min="0" class="w-full rounded-xl bg-slate-800 border border-slate-700 px-3 py-2 font-bold" /></div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/40 space-y-2">
+          <span class="text-xs font-bold text-emerald-300 block">Código PIX Copia e Cola (Válido em Todos os Bancos):</span>
+          <textarea id="pxPayload" rows="3" readonly class="w-full rounded-lg bg-slate-900 border border-slate-700 p-2.5 text-xs font-mono text-emerald-200"></textarea>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" id="pxCopyBtn" class="px-4 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold text-xs">📋 Copiar PIX Copia e Cola</button>
+            <button type="button" onclick="window.print()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs border border-slate-600">🖨️ Imprimir Placa PIX</button>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <script>
+      (function(){
+        function tlv(id,val){var s=String(val);return id+String(s.length).padStart(2,'0')+s;}
+        function crc16(str){
+          var crc=0xFFFF;
+          for(var i=0;i<str.length;i++){
+            crc^=(str.charCodeAt(i)<<8);
+            for(var j=0;j<8;j++){crc=(crc&0x8000)?((crc<<1)^0x1021):(crc<<1);crc&=0xFFFF;}
+          }
+          return crc.toString(16).toUpperCase().padStart(4,'0');
+        }
+        function clean(s,max){return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9 ]/g,'').trim().toUpperCase().slice(0,max);}
+        function gen(){
+          var key=(document.getElementById('pxKey').value||'').trim();
+          var name=clean(document.getElementById('pxName').value,25)||'RECEBEDOR';
+          var city=clean(document.getElementById('pxCity').value,15)||'BRASIL';
+          var val=parseFloat(document.getElementById('pxVal').value)||0;
+          var mai=tlv('00','br.gov.bcb.pix')+tlv('01',key);
+          var p=tlv('00','01')+tlv('26',mai)+tlv('52','0000')+tlv('53','986');
+          if(val>0)p+=tlv('54',val.toFixed(2));
+          p+=tlv('58','BR')+tlv('59',name)+tlv('60',city)+tlv('62',tlv('05','***'))+'6304';
+          document.getElementById('pxPayload').value=p+crc16(p);
+        }
+        document.getElementById('pxCopyBtn').addEventListener('click',function(){
+          if(navigator.clipboard)navigator.clipboard.writeText(document.getElementById('pxPayload').value);
+          this.textContent='✓ Código PIX Copiado!';setTimeout(function(){document.getElementById('pxCopyBtn').textContent='📋 Copiar PIX Copia e Cola';},2000);
+        });
+        ['pxKey','pxName','pxCity','pxVal'].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener('input',gen);});
+        gen();
+      })();
+      </script>
 
-    <!-- Guia Profundo AEO/GEO: Padrão PIX BR Code EMVCo e Fiscalização Receita Federal 2026 -->
-    <article class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6 text-slate-700 text-sm leading-relaxed">
-      <div class="p-5 rounded-2xl bg-emerald-50 border-l-4 border-emerald-600 space-y-2">
-        <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-800">⚡ Resumo Rápido (PIX no CNPJ MEI em 2026)</span>
-        <p class="text-slate-900 font-medium">
-          O <strong>QR Code PIX Estático</strong> segue o padrão internacional <strong>EMVCo BR Code (com validação matemática CRC16-CCITT)</strong> do Banco Central do Brasil, permitindo ao MEI receber pagamentos à vista sem taxa de intermediação na maioria das contas PJ digitais. Todos os valores recebidos via PIX no CPF ou CNPJ pela atividade comercial somam no limite anual de <strong>R$ 81.000,00</strong>.
-        </p>
+
+      <div class="space-y-2 pt-2 no-print">
+        <h2 class="text-lg font-extrabold text-slate-900">Atenção à Fiscalização do PIX pela Receita Federal no MEI</h2>
+        <div class="overflow-x-auto border border-slate-200 rounded-xl">
+          <table class="text-xs sm:text-sm">
+            <thead><tr class="bg-slate-900 text-white font-bold"><th class="py-2.5 px-3 text-left">Tipo de Conta</th><th class="py-2.5 px-3 text-left">Monitoramento DIMP / e-Financeira</th><th class="py-2.5 px-3 text-left">Recomendação Oficial</th></tr></thead>
+            <tbody class="divide-y divide-slate-200"><tr class="bg-white"><td class="py-2.5 px-3 font-bold text-slate-900">Conta PJ (CNPJ MEI)</td><td class="py-2.5 px-3 text-slate-700">Informada mensalmente à Receita Federal</td><td class="py-2.5 px-3 text-slate-700">Receba 100% das vendas da empresa na Conta PJ</td></tr>
+<tr class="bg-slate-50"><td class="py-2.5 px-3 font-bold text-slate-900">Conta PF (CPF Pessoal)</td><td class="py-2.5 px-3 text-slate-700">Cruzada se houver confusão patrimonial</td><td class="py-2.5 px-3 text-slate-700">Transfira apenas seu lucro líquido da PJ para a PF</td></tr></tbody>
+          </table>
+        </div>
       </div>
 
-      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Como Funciona a Tecnologia Oficial BR Code (EMVCo + CRC16) do Banco Central?</h2>
-      <p>
-        Diferente de geradores genéricos de QR Code que apenas codificam um link comum (e falham nos aplicativos de bancos brasileiros), o <strong>Gerador PIX do MEI Master.br</strong> monta a string oficial do <strong>BR Code do Banco Central do Brasil</strong> estruturada em campos TLV (<em>Tag-Length-Value</em>):
-      </p>
-      <ul class="list-disc pl-5 space-y-1.5">
-        <li><strong>ID 00 (Payload Format Indicator):</strong> Define a versão oficial <code>01</code> do protocolo EMVCo.</li>
-        <li><strong>ID 26 (Merchant Account Information):</strong> Encapsula o identificador global do arranjo PIX (<code>br.gov.bcb.pix</code>) junto com a sua chave PIX (CNPJ, CPF, E-mail, Celular no padrão internacional <code>+55</code> ou Chave Aleatória EVP).</li>
-        <li><strong>ID 53 e ID 54 (Transaction Currency & Amount):</strong> Define o código ISO da moeda Real Brasileiro (<code>986</code>) e trava o valor exato da cobrança para evitar que o cliente digite o valor errado.</li>
-        <li><strong>ID 63 (CRC16-CCITT Polinômio 0x1021):</strong> Nos últimos 4 dígitos hexadecimais do código "Copia e Cola", nosso algoritmo calcula em tempo real a assinatura de verificação cíclica exigida por todos os bancos (Nubank, Itaú, Bradesco, Banco do Brasil, Caixa, Cora e Inter).</li>
-      </ul>
+      <div class="space-y-4 no-print"><section class="space-y-2 pt-2"><h2 class="text-lg font-extrabold text-slate-900">Segurança Total (LGPD)</h2><div class="text-sm text-slate-700 leading-relaxed space-y-2"><p>O cálculo matemático do código CRC16-CCITT acontece inteiramente dentro do seu navegador. Sua chave PIX nunca é enviada para servidores externos.</p></div></section></div>
 
-      <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 pt-2">Comparativo 2026: Cobrança via PIX QR Code vs. Maquininha de Cartão no MEI</h2>
-      <div class="overflow-x-auto border border-slate-200 rounded-xl">
-        <table class="w-full text-left border-collapse text-xs sm:text-sm">
-          <thead>
-            <tr class="bg-slate-900 text-white font-bold">
-              <th class="py-3 px-4">Meio de Recebimento</th>
-              <th class="py-3 px-4">Taxa Média por Venda</th>
-              <th class="py-3 px-4">Prazo de Compensação</th>
-              <th class="py-3 px-4">Informado à Receita (DIMP)?</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-200">
-            <tr class="bg-white">
-              <td class="py-3 px-4 font-bold text-emerald-800">Placa QR Code PIX Estático (Conta PJ)</td>
-              <td class="py-3 px-4 font-bold text-emerald-700">R$ 0,00 (Isento em bancos digitais PJ)</td>
-              <td class="py-3 px-4">Instantâneo (24h/7 dias)</td>
-              <td class="py-3 px-4">Sim (Cruzamento Bancário)</td>
-            </tr>
-            <tr class="bg-slate-50">
-              <td class="py-3 px-4 font-bold text-slate-900">Cartão de Débito na Maquininha</td>
-              <td class="py-3 px-4">0,89% a 1,99% por venda</td>
-              <td class="py-3 px-4">Na hora ou 1 dia útil</td>
-              <td class="py-3 px-4">Sim (Declaração DIMP)</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="py-3 px-4 font-bold text-slate-900">Cartão de Crédito à Vista</td>
-              <td class="py-3 px-4">2,99% a 4,99% por venda</td>
-              <td class="py-3 px-4">1 a 30 dias corridos</td>
-              <td class="py-3 px-4">Sim (Declaração DIMP)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <section class="space-y-3 pt-4 border-t border-slate-200 no-print">
+        <h2 class="text-lg font-extrabold text-slate-900">Perguntas Frequentes</h2>
+        <div class="space-y-2.5"><div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1"><h3 class="font-bold text-sm text-slate-900">1. Existe alguma taxa ao gerar PIX Copia e Cola por aqui?</h3><p class="text-xs sm:text-sm text-slate-600">Zero taxa! O dinheiro cai instantaneamente direto na conta vinculada à sua chave PIX.</p></div></div>
+      </section>
     </article>
 
-    <!-- Permanent Rich SEO & FAQ Section Below Tools (Essential for Google AdSense Approval) -->
-    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
-      <div class="max-w-3xl space-y-2">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Perguntas Frequentes (FAQ Oficial MEI 2026)</span>
-        <h2 class="text-xl font-extrabold text-slate-900">Guia Rápido: Cálculo do DAS 2026, Limite Proporcional, Nota Fiscal Nacional e Declaração DASN-SIMEI</h2>
-        <p class="text-xs sm:text-sm text-slate-600">
-          Consulte abaixo as respostas técnicas atualizadas conforme as regras da Receita Federal do Brasil e a Lei Complementar nº 123/2006.
-        </p>
+    <!-- Focused Contextual Related Links (Only 3-4 Relevant Tools -> Zero Duplicate Bloat!) -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3 no-print">
+      <h2 class="text-sm font-extrabold text-slate-900 uppercase tracking-wide">Ferramentas Relacionadas</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        <a href="/calculadora-taxa-maquininha-cartao-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800 text-xs transition">💳 Calculadora de Taxa de Maquininha de Cartão</a>
+<a href="/gerador-recibo-orcamento-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800 text-xs transition">📄 Gerador de Recibo e Orçamento em PDF</a>
+<a href="/" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800 text-xs transition">📊 Simulador de Teto Anual R$ 81.000 e DAS 2025/2026</a>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-          <h3 class="font-bold text-slate-900">1. Qual o valor oficial do DAS MEI em 2026?</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Com o salário mínimo de <strong>R$ 1.621,00 em 2026</strong>, a contribuição previdenciária do INSS (5%) é de <strong>R$ 81,05</strong>. Somando R$ 1,00 de ICMS (Comércio/Indústria) o total é <strong>R$ 82,05</strong>; para Serviços (+R$ 5,00 de ISS) é <strong>R$ 86,05</strong>; e para Comércio e Serviços juntos é <strong>R$ 87,05</strong>.
-          </p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-          <h3 class="font-bold text-slate-900">2. O que é o Limite Proporcional no primeiro ano de CNPJ?</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Se você abriu seu MEI no decorrer do ano, seu teto não é R$ 81.000,00, mas sim <strong>R$ 6.750,00 multiplicado pelo número de meses ativos</strong> entre o mês de abertura do CNPJ e dezembro.
-          </p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-          <h3 class="font-bold text-slate-900">3. Quando devo entregar a Declaração Anual (DASN-SIMEI)?</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Todo Microempreendedor Individual deve enviar a declaração de faturamento bruto anual até o dia <strong>31 de maio de cada ano</strong> referente ao ano anterior, mesmo que o faturamento tenha sido R$ 0,00. O atraso gera multa mínima de R$ 50,00.
-          </p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1.5">
-          <h3 class="font-bold text-slate-900">4. Meus dados financeiros ficam salvos em algum servidor?</h3>
-          <p class="text-slate-600 leading-relaxed">
-            Não! Por segurança e conformidade com a <strong>LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)</strong>, todos os valores que você digita ficam armazenados exclusivamente na memória local do seu próprio navegador.
-          </p>
-        </div>
-      </div>
-    </section>
-
-            <!-- Crawlable Internal Links Hub (30 Clean Canonical URLs) -->
-    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
-      <div class="space-y-1">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Ecossistema Completo MEI 2025 e 2026 (30 Ferramentas e Manuais)</span>
-        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Navegue por Todas as Calculadoras, Geradores de PDF e Guias por Profissão</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs">
-        <a href="/" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">📊 Simulador MEI, Limite R$ 81k & Tabela DAS 2025/2026</a>
-        <a href="/calculadora-multa-juros-das-mei-atrasado" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🧮 Calculadora de Multa e Juros DAS Atrasado (0,33%/dia)</a>
-        <a href="/gerador-recibo-orcamento-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">📄 Gerador de Orçamento e Recibo MEI em PDF com Logo</a>
-        <a href="/gerador-qrcode-pix-mei" class="p-3 rounded-xl bg-emerald-100 border border-emerald-400 font-extrabold text-emerald-950">⚡ Gerador de Placa PIX QR Code e Copia e Cola</a>
-        <a href="/tabela-cnae-mei-2026-nfse" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🔍 Tabela CNAE MEI 2025/2026 e Código NFS-e</a>
-        <a href="/gerador-contrato-servico-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">⚖️ Gerador de Contrato de Prestação de Serviços PDF</a>
-        <a href="/calculadora-preco-hora-freelancer" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🧮 Calculadora de Preço Hora e Lucro Freelancer</a>
-        <a href="/declaracao-faturamento-mei-pdf-banco-emprestimo" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🏦 Gerador de Declaração de Faturamento MEI em PDF</a>
-        <a href="/relatorio-mensal-receitas-brutas-mei-pdf" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">📋 Relatório Mensal de Receitas Brutas MEI em PDF</a>
-        <a href="/gerador-ordem-servico-mei-pdf" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🛠️ Gerador de Ordem de Serviço (OS) em PDF c/ Garantia</a>
-        <a href="/calculadora-inss-complementar-mei-gps-1910" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">👵 Calculadora INSS Complementar 15% (GPS 1910)</a>
-        <a href="/calculadora-desenquadramento-mei-simples-nacional" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🚨 Calculadora de Estouro do Limite R$ 81.000 (Multa)</a>
-        <a href="/calculadora-taxa-maquininha-cartao-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">💳 Calculadora de Repasse de Taxa de Maquininha</a>
-        <a href="/simulador-salario-maternidade-auxilio-doenca-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🤰 Simulador Salário-Maternidade (R$ 6.484) e Auxílio</a>
-        <a href="/gerador-termo-garantia-servico-produto-mei" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🛡️ Gerador de Termo de Garantia Legal 90 Dias (PDF)</a>
-        <a href="/consulta-situacao-cnpj-mei-ccmei-certidao" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">🔎 Consulta CNPJ MEI, Emitir CCMEI e Certidão CND</a>
-        <a href="/guias-enciclopedia-mei-2026" class="p-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 font-bold text-slate-800">📚 Central de Guias e Enciclopédia MEI 2025/2026</a>
-        <a href="/mei-vendedor-shopee-mercado-livre-2026" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">🛒 MEI p/ Vendedor Shopee e Mercado Livre (Margem/NF-e)</a>
-        <a href="/mei-motorista-uber-99-entregador-ifood-2026" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">🚗 MEI p/ Motorista Uber, 99 e Entregador iFood</a>
-        <a href="/mei-cabeleireiro-manicure-barbeiro-salao-parceiro-2026" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">✂️ MEI Cabeleireiro, Manicure e Lei Salão-Parceiro</a>
-        <a href="/mei-pedreiro-eletricista-construcao-civil-2026" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">👷 MEI Pedreiro, Eletricista e Construção Civil</a>
-        <a href="/mei-programador-ti-marketing-digital-2026" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">💻 MEI p/ TI, Programador e Marketing Digital (Fator R)</a>
-        <a href="/como-parcelar-das-mei-atrasado-2026-divida-ativa" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Como Parcelar DAS MEI Atrasado e Dívida Ativa PGFN</a>
-        <a href="/limite-mei-2026-ultrapassar-81-mil-multa" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 O que acontece se ultrapassar R$ 81.000 no MEI?</a>
-        <a href="/como-emitir-nota-fiscal-mei-2026-nfse-nacional" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Como Emitir Nota Fiscal MEI (NFS-e Nacional gov.br)</a>
-        <a href="/direitos-mei-inss-2026-aposentadoria-auxilio-maternidade" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Direitos do MEI no INSS: Aposentadoria e Auxílios</a>
-        <a href="/pix-mei-2026-fiscalizacao-receita-federal-cpf-cnpj" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Fiscalização do PIX e Cartão pela Receita no MEI</a>
-        <a href="/declaracao-imposto-renda-mei-2026-parcela-isenta-irpf" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Imposto de Renda MEI e Parcela Isenta (8%, 16%, 32%)</a>
-        <a href="/mei-caminhoneiro-2026-limite-251-mil-inss-cnae" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 MEI Caminhoneiro: Limite R$ 251.600 e DAS 12%</a>
-        <a href="/contratar-funcionario-mei-2026-custo-fgts-inss-esocial" class="p-3 rounded-xl bg-emerald-50/60 hover:bg-emerald-100/70 border border-emerald-200 font-semibold text-emerald-950">📘 Quanto Custa Contratar 1 Funcionário no MEI?</a>
-      </div>
-      
     </section>
   </main>
 
-  <!-- Mobile Sticky Bottom Navigation Bar -->
-  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 shadow-lg px-2 py-1.5 flex items-center justify-around">
-    <a href="/" class="flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600"><span>📊</span><span>DAS/Teto</span></a>
-    <a href="/gerador-recibo-orcamento-mei" class="flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600"><span>📄</span><span>Recibo PDF</span></a>
-    <a href="/gerador-qrcode-pix-mei" class="flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-emerald-600"><span>⚡</span><span>PIX QR</span></a>
-    <a href="/tabela-cnae-mei-2026-nfse" class="flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600"><span>🔍</span><span>CNAE</span></a>
-    <a href="/gerador-contrato-servico-mei" class="flex flex-col items-center py-1 px-2 rounded-lg text-[10px] font-bold text-slate-600"><span>⚖️</span><span>Contrato</span></a>
-  </div>
-
-  <!-- LGPD Cookie Consent Banner (Mandatory for Google AdSense in Brazil) -->
-  <div id="lgpdCookieBanner" class="fixed bottom-16 lg:bottom-4 left-4 right-4 max-w-4xl mx-auto z-40 bg-slate-900 text-white p-4 rounded-2xl shadow-2xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <div class="text-xs text-slate-300 leading-relaxed">
-      🍪 <strong>Aviso de Privacidade e LGPD (Lei nº 13.709/2018):</strong> Utilizamos armazenamento local para salvar seus cálculos no navegador e cookies do Google AdSense para exibir anúncios relevantes. Nenhum dado financeiro ou chave PIX é enviado para servidores externos.
-    </div>
-    <div class="flex items-center gap-2 shrink-0">
-      <button type="button" id="acceptLgpdCookiesBtn" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition">
-        Aceitar e Continuar
-      </button>
-    </div>
-  </div>
-
-  <!-- Footer with Mandatory AdSense Compliance Links -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 border-t border-slate-800 mt-10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <span class="font-bold text-white">MEI Master.br 2026 (v2.0 Production)</span> — Plataforma Independente de Apoio ao Empreendedor Brasileiro.
-        <p class="text-[11px] text-slate-500 mt-1">Em conformidade com a LGPD (Lei nº 13.709/2018), Marco Civil da Internet e Políticas do Google AdSense.</p>
-      </div>
-      <div class="flex flex-wrap items-center gap-4">
-        <button type="button" data-legal="privacidade" class="legal-modal-btn hover:text-white underline">Política de Privacidade & Cookies</button>
-        <button type="button" data-legal="termos" class="legal-modal-btn hover:text-white underline">Termos de Uso</button>
-        <button type="button" data-legal="sobre" class="legal-modal-btn hover:text-white underline">Sobre & Contato</button>
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 px-4 border-t border-slate-800 mt-8 no-print">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div><strong class="text-white">MEI Master.br</strong> — Ferramentas Gratuitas para o Microempreendedor Individual (LGPD).</div>
+      <div class="flex flex-wrap gap-4">
+        <a href="/politica-de-privacidade" class="hover:text-white underline">Política de Privacidade</a>
+        <a href="/termos-de-uso" class="hover:text-white underline">Termos de Uso</a>
+        <a href="/sobre-contato" class="hover:text-white underline">Sobre & Contato</a>
       </div>
     </div>
   </footer>
-
-  <!-- Toast Notification -->
-  <div id="toastBanner" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl border border-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-2">
-    <span class="text-emerald-400">✓</span>
-    <span id="toastMessageText">Copiado com sucesso!</span>
-  </div>
-
-  <!-- Official Receita Federal Monthly Report Modal -->
-  <div id="officialDasnModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-        <h3 class="font-extrabold text-base sm:text-lg text-slate-900">📄 Relatório Anual de Receitas Brutas (Modelo DASN-SIMEI)</h3>
-        <button type="button" id="closeOfficialDasnModalBtn" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">Fechar ✕</button>
-      </div>
-      <div id="officialDasnModalContent" class="text-xs sm:text-sm text-slate-700 space-y-3 font-mono bg-slate-50 p-4 rounded-xl border border-slate-200 whitespace-pre-wrap"></div>
-      <div class="flex justify-end gap-2">
-        <button type="button" id="copyOfficialDasnModalBtn" class="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs">Copiar Relatório Completo</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Legal Compliance Modal (Privacy Policy / Terms for AdSense Approval) -->
-  <div id="legalModal" class="fixed inset-0 z-50 hidden bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-        <h3 id="legalModalTitle" class="font-extrabold text-lg text-slate-900">Política de Privacidade e LGPD</h3>
-        <button type="button" id="closeLegalModalBtn" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs">Fechar ✕</button>
-      </div>
-      <div id="legalModalBody" class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed"></div>
-    </div>
-  </div>
-
-  <script>
-      // ==========================================
-      // STATE & DEFAULT DATA
-      // ==========================================
-      const MONTHS_PT = [
-        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-        'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-      ];
-
-      const DEFAULT_MONTHLY_REVENUE = [4200, 4500, 4800, 4300, 5100, 4900, 4600, 5200, 4400, 4700, 4100, 4000];
-      let monthlyRevenues = [...DEFAULT_MONTHLY_REVENUE];
-
-      let quoteItems = [
-        { id: 1, desc: 'Criação de Identidade Visual e Cardápio Digital QR', qty: 1, price: 750 },
-        { id: 2, desc: 'Configuração de Perfil Google Meu Negócio + Catálogo WhatsApp', qty: 1, price: 500 }
-      ];
-      let savedClients = [
-        { name: 'Padaria & Confeitaria Bela Vista Ltda', doc: '19.442.110/0001-05' },
-        { name: 'Clínica Odontológica Sorriso Perfeito', doc: '32.110.890/0001-44' }
-      ];
-      let currentDocType = 'ORÇAMENTO COMERCIAL';
-      let adPreviewVisible = true;
-      let revenueChartInstance = null;
-      let currentMonthlyDasGlobal = 87.05;
-
-      // Searchable CNAE 2026 Database (High-Volume Brazilian Professions)
-      const CNAE_DATABASE = [
-        { code: '4781-4/00', title: 'Comerciante de Artigos do Vestuário e Acessórios (Loja de Roupas)', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual (DANFE)' },
-        { code: '9602-5/01', title: 'Cabeleireiro(a), Barbeiro(a) e Manicure / Pedicure Independente', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '4321-5/00', title: 'Eletricista e Instalador de Sistemas Elétricos Residenciais', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '7319-0/02', title: 'Promotor(a) de Vendas, Gestor de Tráfego e Marketing Digital', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '5620-1/04', title: 'Fornecimento de Alimentos Preparados (Marmitex, Doces e Salgados)', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e / NFC-e Estadual' },
-        { code: '5320-2/02', title: 'Entregador de Mercadorias / Motoboy / Courier de Aplicativo', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '9511-8/00', title: 'Técnico(a) de Manutenção de Computadores e Celulares', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '8599-6/04', title: 'Instrutor(a) de Cursos Livres, Idiomas e Treinamento Profissional', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '4399-1/03', title: 'Pedreiro, Pintor de Obras, Gesseiro e Azulejista', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '7420-0/01', title: 'Fotógrafo(a) Comercial, Eventos e Produção Audiovisual', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '1091-1/02', title: 'Fabricante de Produtos de Padaria, Confeitaria e Bolos Caseiros', sector: 'Indústria', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual' },
-        { code: '4520-0/01', title: 'Mecânico(a) de Veículos Automotores e Funilaria', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional / NF-e Peças' },
-        { code: '8219-9/99', title: 'Digitador(a), Assistente Virtual e Apoio Administrativo', sector: 'Serviços', tax: 'ISS (R$ 5,00)', das: 'R$ 86,05', nf: 'NFS-e Nacional (Portal Gov.br)' },
-        { code: '4751-2/01', title: 'Comerciante de Equipamentos e Suprimentos de Informática', sector: 'Comércio', tax: 'ICMS (R$ 1,00)', das: 'R$ 82,05', nf: 'NF-e Estadual' },
-        { code: '4930-2/02', title: 'Transportador Autônomo de Cargas Municipal e Interestadual (MEI Caminhoneiro)', sector: 'Caminhoneiro', tax: 'INSS 12% + ICMS/ISS', das: 'R$ 200,52', nf: 'CT-e / NFS-e Transporte' }
-      ];
-
-      // Full-Length Editorial Articles for AdSense Approval & Organic SEO
-      const FULL_BLOG_ARTICLES = [
-        {
-          id: 'teto-mei-2026',
-          category: 'Impostos & Limites 2026',
-          title: 'O que acontece se o MEI ultrapassar o limite de R$ 81.000 em 2026? (Cálculo Passo a Passo)',
-          meta: 'Leitura: 6 min • Atualizado conforme regras da Receita Federal 2026',
-          summary: 'Entenda a diferença exata entre estourar o teto em até 20% (R$ 97.200) ou acima de 20% e veja como calcular o DAS complementar.',
-          html: `
-            <p>O limite anual de faturamento bruto do Microempreendedor Individual (MEI) permanece em <strong>R$ 81.000,00 por ano</strong> (média de R$ 6.750,00 mensais) para as categorias gerais, e <strong>R$ 251.600,00</strong> para o MEI Caminhoneiro. Contudo, muitos empreendedores acabam vendendo mais do que o esperado no final do ano e têm dúvidas sobre as penalidades.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">1. Cenário A: Faturamento entre R$ 81.000,01 e R$ 97.200,00 (Até 20% de excesso)</h4>
-            <p>Se a sua receita bruta anual ficar dentro da faixa de tolerância de 20% (ou seja, até R$ 97.200,00 no ano completo), o desenquadramento não é retroativo. Você continuará pagando seu boleto DAS normal até dezembro. Em janeiro do ano seguinte, ao transmitir a declaração anual (DASN-SIMEI), o sistema gerará uma <strong>guia DAS Complementar</strong> apenas sobre a diferença que ultrapassou R$ 81 mil (com alíquota do Simples Nacional entre 4% para comércio e 6% para serviços). A partir de 1º de janeiro seguinte, seu CNPJ passa a ser Microempresa (ME).</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">2. Cenário B: Faturamento acima de R$ 97.200,00 (Mais de 20% de excesso)</h4>
-            <p>Caso suas vendas ultrapassem R$ 97.200,00, a regra é severa: o desenquadramento ocorre de forma <strong>retroativa a 1º de janeiro do próprio ano</strong> em que houve o excesso. Isso significa que você deixará de ser MEI desde o início daquele ano e precisará recolher os impostos do Simples Nacional sobre todo o faturamento acumulado, acrescidos de juros SELIC e multa.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">3. Atenção ao Limite Proporcional no Primeiro Ano de CNPJ</h4>
-            <p>Se você abriu seu CNPJ em julho (6 meses ativos no ano), seu teto máximo naquele ano será de <strong>6 x R$ 6.750,00 = R$ 40.500,00</strong>, e a faixa de tolerância de 20% será de R$ 48.600,00. Utilize sempre o nosso Simulador na Aba 1 para monitorar sua margem mensal com segurança.</p>
-          `
-        },
-        {
-          id: 'nfse-nacional-2026',
-          category: 'Notas Fiscais & Emissão',
-          title: 'Guia Definitivo da NFS-e Nacional 2026: Quando o MEI é obrigado a emitir Nota Fiscal?',
-          meta: 'Leitura: 5 min • Portal Emissor Nacional gov.br/nfse',
-          summary: 'Descubra quando o Recibo em PDF é suficiente e quando a emissão da Nota Fiscal Eletrônica no portal gov.br é obrigatória por lei.',
-          html: `
-            <p>Pela Lei Complementar nº 123/2006, o Microempreendedor Individual possui um tratamento simplificado quanto à emissão de documentos fiscais. Saber exatamente quando emitir um Recibo Comercial ou uma Nota Fiscal evita multas e economiza tempo.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">1. Vendas e Serviços para Pessoa Física (CPF)</h4>
-            <p>Quando você atende um consumidor final pessoa física (CPF), <strong>o MEI está dispensado por lei de emitir Nota Fiscal</strong>, a menos que o próprio cliente solicite o documento. Nesses casos cotidianos, o <strong>Recibo de Pagamento ou Ordem de Serviço em PDF</strong> (que você gera gratuitamente na Aba 2 desta plataforma) é o comprovante ideal para registrar a transação e a garantia.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">2. Vendas e Serviços para Outras Empresas (CNPJ) ou Órgãos Públicos</h4>
-            <p>Sempre que o seu cliente for uma pessoa jurídica (CNPJ), a emissão da Nota Fiscal é <strong>100% obrigatória</strong>. Para prestadores de serviços, a emissão é feita gratuitamente pelo <strong>Portal Nacional da NFS-e (gov.br/nfse)</strong> ou pelo aplicativo oficial NFS-e Mobile, utilizando o código de tributação nacional correspondente ao seu CNAE.</p>
-          `
-        },
-        {
-          id: 'inss-beneficios-mei',
-          category: 'Previdência & INSS',
-          title: 'Direitos do MEI no INSS em 2026: Aposentadoria, Auxílio-Doença e Salário-Maternidade',
-          meta: 'Leitura: 5 min • Regras de Carência Previdenciária',
-          summary: 'Veja todos os benefícios garantidos pelo pagamento em dia da guia DAS de R$ 81,05+ e como complementar para se aposentar com valor maior.',
-          html: `
-            <p>O pagamento em dia do Documento de Arrecadação do Simples Nacional (DAS) garante cobertura previdenciária completa junto ao INSS tanto para o titular do MEI quanto para seus dependentes legais.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">Prazos de Carência Oficial do INSS para o MEI:</h4>
-            <ul class="list-disc pl-5 space-y-1">
-              <li><strong>Salário-Maternidade:</strong> 10 contribuições mensais pagas em dia antes do parto ou adoção.</li>
-              <li><strong>Auxílio por Incapacidade Temporária (Auxílio-Doença):</strong> 12 meses de contribuição (isento de carência em caso de acidente de qualquer natureza).</li>
-              <li><strong>Aposentadoria por Idade:</strong> 180 contribuições mensais (15 anos) + idade mínima (62 anos para mulheres e 65 anos para homens).</li>
-              <li><strong>Pensão por Morte e Auxílio-Reclusão:</strong> Garantidos aos dependentes desde o primeiro pagamento em dia.</li>
-            </ul>
-            <p class="pt-2"><strong>Dica Contábil:</strong> Como a alíquota do MEI é reduzida (5% do salário mínimo), a aposentadoria padrão é de 1 salário mínimo (R$ 1.621,00 em 2026). Caso deseje se aposentar por tempo de contribuição ou com valor superior, é possível emitir uma guia GPS complementar de 15% (código 1910).</p>
-          `
-        },
-        {
-          id: 'pix-cnpj-receita-federal',
-          category: 'Fiscalização & Bancos',
-          title: 'Cruzamento de Dados do PIX e Cartão pela Receita Federal: O que todo MEI precisa saber',
-          meta: 'Leitura: 6 min • Declaração DIMP e e-Financeira',
-          summary: 'Como os bancos e maquininhas informam suas vendas ao Fisco e por que você nunca deve misturar o PIX do CPF com o CNPJ.',
-          html: `
-            <p>Muitos microempreendedores acreditam que apenas os valores com Nota Fiscal emitida entram na conta do limite anual de R$ 81.000,00. Na realidade, todas as instituições financeiras e operadoras de maquininhas enviam relatórios mensais (DIMP e e-Financeira) diretamente para a Receita Federal e para as Secretarias Estaduais de Fazenda.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">3 Regras de Ouro para Evitar Malha Fina no MEI:</h4>
-            <ul class="list-disc pl-5 space-y-1">
-              <li><strong>Separe Conta PF e Conta PJ:</strong> Receba todas as vendas do seu negócio exclusivamente em uma conta bancária PJ vinculada ao seu CNPJ.</li>
-              <li><strong>Some Tudo no Relatório Mensal:</strong> Na declaração anual DASN-SIMEI, informe a soma das vendas com nota fiscal e sem nota fiscal (vendas para CPF via PIX, dinheiro ou cartão).</li>
-              <li><strong>Guarde Notas de Compra:</strong> Se o volume de compras de mercadorias no seu CNPJ ultrapassar 80% do valor declarado de vendas, o sistema pode identificar omissão de receita.</li>
-            </ul>
-          `
-        },
-        {
-          id: 'parcelamento-divida-mei',
-          category: 'Regularização CNPJ',
-          title: 'Como Parcelar Boletos DAS Atrasados e Evitar o Cancelamento do CNPJ na Dívida Ativa',
-          meta: 'Leitura: 5 min • Portal Simples Nacional e Regularize PGFN',
-          summary: 'Passo a passo para parcelar débitos do MEI em até 60 vezes com parcela mínima de R$ 50,00 e recuperar a qualidade de segurado do INSS.',
-          html: `
-            <p>Deixar guias DAS em atraso por longo período pode levar à inscrição do débito em Dívida Ativa da União (no CPF do empresário) e até ao cancelamento definitivo do CNPJ por inadimplência.</p>
-            <h4 class="font-extrabold text-slate-900 text-base pt-2">Como funciona o Parcelamento Oficial:</h4>
-            <p>No Portal do Simples Nacional (ou no Portal Regularize da PGFN, caso o débito já tenha sido enviado para a Dívida Ativa), o MEI pode dividir o saldo devedor em <strong>até 60 parcelas mensais</strong>, respeitando o valor mínimo de <strong>R$ 50,00 por parcela</strong>. Para manter o parcelamento ativo, é fundamental pagar a primeira parcela até o vencimento e manter os DAS do ano corrente rigorosamente em dia.</p>
-          `
-        },
-        {
-          id: 'distribuicao-lucros-irpf-mei',
-          category: 'Imposto de Renda PF',
-          title: 'Cálculo da Parcela Isenta de Lucro do MEI no Imposto de Renda Pessoa Física (8%, 16% e 32%)',
-          meta: 'Leitura: 6 min • Declaração de IRPF do Titular MEI',
-          summary: 'Aprenda a calcular quanto do dinheiro transferido do CNPJ para o seu CPF é 100% isento de Imposto de Renda.',
-          html: `
-            <p>Uma coisa é a Declaração Anual do CNPJ (DASN-SIMEI); outra é a Declaração de Imposto de Renda da Pessoa Física (IRPF) do dono do MEI. Pela legislação federal, uma parte do lucro do MEI pode ser transferida para a pessoa física com <strong>isenção total de Imposto de Renda</strong>:</p>
-            <ul class="list-disc pl-5 space-y-1">
-              <li><strong>8% da Receita Bruta Anual:</strong> Para atividades de Comércio, Indústria e Transporte de Cargas.</li>
-              <li><strong>16% da Receita Bruta Anual:</strong> Para atividades de Transporte de Passageiros.</li>
-              <li><strong>32% da Receita Bruta Anual:</strong> Para Prestação de Serviços em geral.</li>
-            </ul>
-            <p class="pt-2">Caso você mantenha escrituração contábil assinada por contador, 100% do lucro líquido comprovado pode ser distribuído com isenção de IRPF.</p>
-          `
-        }
-      ];
-
-      // Load saved state safely
-      try {
-        const savedRev = localStorage.getItem('mei_master_revenues_v2');
-        if (savedRev) {
-          const parsed = JSON.parse(savedRev);
-          if (Array.isArray(parsed) && parsed.length === 12) {
-            monthlyRevenues = parsed.map(n => Number(n) || 0);
-          }
-        }
-        const savedCli = localStorage.getItem('mei_master_clients_v2');
-        if (savedCli) {
-          const parsedCli = JSON.parse(savedCli);
-          if (Array.isArray(parsedCli) && parsedCli.length > 0) {
-            savedClients = parsedCli;
-          }
-        }
-        const cookieOk = localStorage.getItem('mei_master_lgpd_ok');
-        if (cookieOk === '1') {
-          const banner = document.getElementById('lgpdCookieBanner');
-          if (banner) banner.classList.add('hidden');
-        }
-      } catch (e) {}
-
-      // ==========================================
-      // HELPERS
-      // ==========================================
-      function formatBRL(value) {
-        return Number(value || 0).toLocaleString('pt-BR', {
-          style: 'currency',
-          currency: 'BRL'
-        });
-      }
-
-      function showToast(msg) {
-        const banner = document.getElementById('toastBanner');
-        const text = document.getElementById('toastMessageText');
-        text.textContent = msg;
-        banner.classList.remove('hidden');
-        clearTimeout(window.__toastTimer);
-        window.__toastTimer = setTimeout(() => {
-          banner.classList.add('hidden');
-        }, 3200);
-      }
-
-      function copyTextToClipboard(text, successMessage) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => {
-            showToast(successMessage);
-          }).catch(() => {
-            fallbackCopy(text, successMessage);
-          });
-        } else {
-          fallbackCopy(text, successMessage);
-        }
-      }
-
-      function fallbackCopy(text, successMessage) {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand('copy');
-          showToast(successMessage);
-        } catch (err) {
-          showToast('Copie manualmente o texto selecionado.');
-        }
-        document.body.removeChild(ta);
-      }
-
-      // ==========================================
-      // DARK MODE, LGPD BANNER, ADSENSE & MODALS
-      // ==========================================
-      document.getElementById('toggleDarkModeBtn').addEventListener('click', () => {
-        const htmlEl = document.documentElement;
-        const isDark = htmlEl.classList.toggle('dark');
-        document.getElementById('darkModeIcon').textContent = isDark ? '☀️' : '🌙';
-        document.getElementById('darkModeLabel').textContent = isDark ? 'Modo Claro' : 'Modo Escuro';
-      });
-
-      document.getElementById('acceptLgpdCookiesBtn').addEventListener('click', () => {
-        document.getElementById('lgpdCookieBanner').classList.add('hidden');
-        try {
-          localStorage.setItem('mei_master_lgpd_ok', '1');
-        } catch (e) {}
-      });
-
-      const legalModal = document.getElementById('legalModal');
-      const legalTitle = document.getElementById('legalModalTitle');
-      const legalBody = document.getElementById('legalModalBody');
-
-      const LEGAL_TEXTS = {
-        privacidade: {
-          title: 'Política de Privacidade, Cookies e Conformidade LGPD',
-          html: '<p>O <strong>MEI Master.br</strong> respeita a sua privacidade e atua em estrita conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).</p><p><strong>1. Processamento 100% Local:</strong> Todos os cálculos de faturamento, chaves PIX, logomarcas, nomes de clientes e recibos são processados exclusivamente no navegador do seu dispositivo. Não armazenamos seus dados financeiros em bancos de dados externos.</p><p><strong>2. Cookies e Google AdSense:</strong> Utilizamos cookies de terceiros (incluindo o cookie DoubleClick DART do Google AdSense) para exibir anúncios relevantes com base em suas visitas anteriores a este e a outros sites na internet.</p>'
-        },
-        termos: {
-          title: 'Termos de Uso e Isenção de Responsabilidade Contábil',
-          html: '<p>As ferramentas disponibilizadas no <strong>MEI Master.br</strong> possuem caráter informativo, educativo e de auxílio à gestão cotidiana do Microempreendedor Individual.</p><p>Os cálculos seguem as regras públicas da Lei Complementar nº 123/2006 e resoluções do CGSN, mas não substituem a consultoria formal de um contador registrado no CRC nos casos de desenquadramento empresarial.</p>'
-        },
-        sobre: {
-          title: 'Sobre a Plataforma MEI Master Brasil',
-          html: '<p>Desenvolvido para facilitar a rotina dos mais de 15 milhões de microempreendedores individuais e autônomos brasileiros, reunindo em uma única tela gratuita simulador de teto anual, gerador de recibos em PDF com logo, QR Code PIX oficial, consulta de CNAE, gerador de contratos e precificação de horas técnicas.</p>'
-        }
-      };
-
-      document.querySelectorAll('.legal-modal-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const key = btn.getAttribute('data-legal');
-          const info = LEGAL_TEXTS[key] || LEGAL_TEXTS.privacidade;
-          legalTitle.textContent = info.title;
-          legalBody.innerHTML = info.html;
-          legalModal.classList.remove('hidden');
-        });
-      });
-      document.getElementById('closeLegalModalBtn').addEventListener('click', () => {
-        legalModal.classList.add('hidden');
-      });
-
-      // ==========================================
-      // MODULE 3: GERADOR PIX BR CODE + PNG DOWNLOAD
-      // ==========================================
-      function emvField(id, value) {
-        const str = String(value || '');
-        const len = String(str.length).padStart(2, '0');
-        return `${id}${len}${str}`;
-      }
-
-      function computeCRC16(payload) {
-        let crc = 0xFFFF;
-        for (let i = 0; i < payload.length; i++) {
-          crc ^= payload.charCodeAt(i) << 8;
-          for (let j = 0; j < 8; j++) {
-            if ((crc & 0x8000) !== 0) {
-              crc = ((crc << 1) ^ 0x1021) & 0xFFFF;
-            } else {
-              crc = (crc << 1) & 0xFFFF;
-            }
-          }
-        }
-        return crc.toString(16).toUpperCase().padStart(4, '0');
-      }
-
-      function buildBrCodePix() {
-        const rawKey = (document.getElementById('pixKeyValue').value || '').trim();
-        const rawName = (document.getElementById('pixMerchantName').value || 'EMPREENDEDOR MEI')
-          .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().slice(0, 25);
-        const rawCity = (document.getElementById('pixMerchantCity').value || 'SAO PAULO')
-          .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().slice(0, 15);
-        const amountNum = Math.max(0, Number(document.getElementById('pixAmount').value) || 0);
-        const txId = (document.getElementById('pixTxId').value || 'MEIMASTER')
-          .replace(/[^a-zA-Z0-9]/g, '').toUpperCase().slice(0, 20) || '***';
-
-        const gui = emvField('00', 'br.gov.bcb.pix');
-        const keyField = emvField('01', rawKey);
-        const merchantAccount = emvField('26', gui + keyField);
-
-        let payload =
-          emvField('00', '01') +
-          merchantAccount +
-          emvField('52', '0000') +
-          emvField('53', '986');
-
-        if (amountNum > 0) {
-          payload += emvField('54', amountNum.toFixed(2));
-        }
-
-        payload +=
-          emvField('58', 'BR') +
-          emvField('59', rawName) +
-          emvField('60', rawCity) +
-          emvField('62', emvField('05', txId)) +
-          '6304';
-
-        const crc = computeCRC16(payload);
-        const fullCode = payload + crc;
-
-        document.getElementById('pixPayloadOutput').value = fullCode;
-        document.getElementById('pixPreviewTitle').textContent =
-          `Pagamento de ${formatBRL(amountNum)} para ${rawName}`;
-
-        const qrContainer = document.getElementById('pixQrCodeContainer');
-        qrContainer.innerHTML = '';
-        if (typeof QRCode !== 'undefined') {
-          new QRCode(qrContainer, {
-            text: fullCode,
-            width: 176,
-            height: 176,
-            colorDark: '#064e3b',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.M
-          });
-        }
-      }
-
-      document.getElementById('generatePixBtn').addEventListener('click', () => {
-        buildBrCodePix();
-        showToast('QR Code PIX atualizado com sucesso!');
-      });
-
-      ['pixKeyType', 'pixKeyValue', 'pixMerchantName', 'pixMerchantCity', 'pixAmount', 'pixTxId'].forEach(id => {
-        document.getElementById(id).addEventListener('input', buildBrCodePix);
-      });
-
-      document.getElementById('copyPixCodeBtn').addEventListener('click', () => {
-        const code = document.getElementById('pixPayloadOutput').value;
-        copyTextToClipboard(code, 'Código PIX Copia e Cola copiado!');
-      });
-
-      document.getElementById('copyPixWhatsappBtn').addEventListener('click', () => {
-        const name = document.getElementById('pixMerchantName').value;
-        const amt = formatBRL(document.getElementById('pixAmount').value);
-        const code = document.getElementById('pixPayloadOutput').value;
-        const msg = `⚡ *Cobrança via PIX — ${name}*\n💰 *Valor:* ${amt}\n\nCopie o código abaixo e cole na opção *PIX Copia e Cola* do seu aplicativo bancário:\n\n${code}`;
-        copyTextToClipboard(msg, 'Mensagem de cobrança PIX copiada para o WhatsApp!');
-      });
-
-      document.getElementById('downloadPixQrPngBtn').addEventListener('click', () => {
-        const qrContainer = document.getElementById('pixQrCodeContainer');
-        const img = qrContainer.querySelector('img');
-        const canvas = qrContainer.querySelector('canvas');
-        const dataUrl = (canvas && canvas.toDataURL('image/png')) || (img && img.src);
-        if (dataUrl) {
-          const a = document.createElement('a');
-          a.href = dataUrl;
-          a.download = 'qrcode_pix_mei.png';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          showToast('Imagem do QR Code PIX baixada!');
-        } else {
-          showToast('Gere o QR Code primeiro.');
-        }
-      });
-
-      window.addEventListener('DOMContentLoaded', () => { buildBrCodePix(); });
-    })();
-  </script>
 </body>
 </html>
